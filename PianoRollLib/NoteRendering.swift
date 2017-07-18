@@ -1,0 +1,3 @@
+protocol NoteRendering {
+    func render()
+}

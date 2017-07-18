@@ -18,6 +18,8 @@
 		285184B11F1E04AB00A6A9A5 /* PianoRollLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2851849B1F1E04AA00A6A9A5 /* PianoRollLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		285184BA1F1E05F200A6A9A5 /* PianoRollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184B91F1E05F200A6A9A5 /* PianoRollTests.swift */; };
 		285184BC1F1E061400A6A9A5 /* PianoRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184BB1F1E061400A6A9A5 /* PianoRoll.swift */; };
+		285184BE1F1E0AC300A6A9A5 /* MockNoteRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184BD1F1E0AC300A6A9A5 /* MockNoteRendering.swift */; };
+		285184C01F1E0B5000A6A9A5 /* NoteRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184BF1F1E0B5000A6A9A5 /* NoteRendering.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		285184AC1F1E04AB00A6A9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285184B91F1E05F200A6A9A5 /* PianoRollTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollTests.swift; sourceTree = "<group>"; };
 		285184BB1F1E061400A6A9A5 /* PianoRoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRoll.swift; sourceTree = "<group>"; };
+		285184BD1F1E0AC300A6A9A5 /* MockNoteRendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoteRendering.swift; sourceTree = "<group>"; };
+		285184BF1F1E0B5000A6A9A5 /* NoteRendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteRendering.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 			children = (
 				2851849E1F1E04AB00A6A9A5 /* Info.plist */,
 				285184BB1F1E061400A6A9A5 /* PianoRoll.swift */,
+				285184BF1F1E0B5000A6A9A5 /* NoteRendering.swift */,
 			);
 			path = PianoRollLib;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			children = (
 				285184AC1F1E04AB00A6A9A5 /* Info.plist */,
 				285184B91F1E05F200A6A9A5 /* PianoRollTests.swift */,
+				285184BD1F1E0AC300A6A9A5 /* MockNoteRendering.swift */,
 			);
 			path = PianoRollLibTests;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285184C01F1E0B5000A6A9A5 /* NoteRendering.swift in Sources */,
 				285184BC1F1E061400A6A9A5 /* PianoRoll.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285184BE1F1E0AC300A6A9A5 /* MockNoteRendering.swift in Sources */,
 				285184BA1F1E05F200A6A9A5 /* PianoRollTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
