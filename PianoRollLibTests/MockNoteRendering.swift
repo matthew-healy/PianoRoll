@@ -2,7 +2,9 @@
 
 class MockNoteRendering: NoteRendering {
     var didRender = false
-    func render() {
+    var spyRenderedNotes: [Note] = []
+    func render(notes: [Note]) {
         didRender = true
+        spyRenderedNotes = notes
     }
 }

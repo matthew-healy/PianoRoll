@@ -1,3 +1,3 @@
 protocol NoteRendering {
-    func render()
+    func render(notes: [Note])
 }

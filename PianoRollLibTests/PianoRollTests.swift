@@ -10,4 +10,11 @@ class PianoRollTests: XCTestCase {
         XCTAssertTrue(mockRenderer.didRender)
     }
     
+    func test_render_noNotesAdded_passesEmptyNotesArrayToRenderer() {
+        let mockRenderer = MockNoteRendering()
+        let pianoRoll = PianoRoll()
+        pianoRoll.render(with: mockRenderer)
+        XCTAssertEqual([], mockRenderer.spyRenderedNotes)
+    }
+
 }
