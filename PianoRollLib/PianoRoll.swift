@@ -16,7 +16,8 @@ struct PianoRoll {
     }
     
     private func isValid(pitch: Int) -> Bool {
-        return pitch >= 0 && pitch < 128
+        let midiRange = 0..<128
+        return midiRange.contains(pitch)
     }
     
     private func isValid(length: Int) -> Bool {
