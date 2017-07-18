@@ -76,6 +76,20 @@ class PianoRollTests: XCTestCase {
         )
     }
     
+    func test_add_positionPlusLengthIsEqualToStepCount_throwsInvalidLengthError() {
+        Assert.error(
+            PianoRollError.invalidLength,
+            isThrownIn: try subject.add(.create(length: 2, position: 8))
+        )
+    }
+
+    func test_add_positionPlusLengthIsGreaterThanStepCount_throwsInvalidLengthError() {
+        Assert.error(
+            PianoRollError.invalidLength,
+            isThrownIn: try subject.add(.create(length: 2, position: 9))
+        )
+    }
+
     func test_add_pitch0Length2_isRendered() throws {
         let expected: Note = .create(length: 2)
         try subject.add(expected)

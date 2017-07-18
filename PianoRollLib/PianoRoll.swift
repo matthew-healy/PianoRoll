@@ -15,7 +15,7 @@ struct PianoRoll {
         guard isValid(pitch: note.pitch) else {
             throw PianoRollError.pitchOutOfRange
         }
-        guard isValid(length: note.length) else {
+        guard hasValidLength(note) else {
             throw PianoRollError.invalidLength
         }
         guard isValid(position: note.position) && !overlapsExistingNote(note) else {
@@ -29,8 +29,8 @@ struct PianoRoll {
         return midiRange.contains(pitch)
     }
     
-    private func isValid(length: Int) -> Bool {
-        return length > 0
+    private func hasValidLength(_ note: Note) -> Bool {
+        return note.length > 0 && (note.position + note.length) < timeStepCount
     }
 
     private func isValid(position: Int) -> Bool {
