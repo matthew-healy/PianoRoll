@@ -16,6 +16,8 @@
 		285184A41F1E04AB00A6A9A5 /* PianoRollLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2851849B1F1E04AA00A6A9A5 /* PianoRollLib.framework */; };
 		285184B01F1E04AB00A6A9A5 /* PianoRollLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2851849B1F1E04AA00A6A9A5 /* PianoRollLib.framework */; };
 		285184B11F1E04AB00A6A9A5 /* PianoRollLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2851849B1F1E04AA00A6A9A5 /* PianoRollLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		285184BA1F1E05F200A6A9A5 /* PianoRollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184B91F1E05F200A6A9A5 /* PianoRollTests.swift */; };
+		285184BC1F1E061400A6A9A5 /* PianoRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184BB1F1E061400A6A9A5 /* PianoRoll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		2851849E1F1E04AB00A6A9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285184A31F1E04AB00A6A9A5 /* PianoRollLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PianoRollLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		285184AC1F1E04AB00A6A9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		285184B91F1E05F200A6A9A5 /* PianoRollTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollTests.swift; sourceTree = "<group>"; };
+		285184BB1F1E061400A6A9A5 /* PianoRoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRoll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				2851849E1F1E04AB00A6A9A5 /* Info.plist */,
+				285184BB1F1E061400A6A9A5 /* PianoRoll.swift */,
 			);
 			path = PianoRollLib;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				285184AC1F1E04AB00A6A9A5 /* Info.plist */,
+				285184B91F1E05F200A6A9A5 /* PianoRollTests.swift */,
 			);
 			path = PianoRollLibTests;
 			sourceTree = "<group>";
@@ -282,10 +288,12 @@
 					};
 					2851849A1F1E04AA00A6A9A5 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					285184A21F1E04AB00A6A9A5 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 285184721F1DFABE00A6A9A5;
 					};
@@ -368,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285184BC1F1E061400A6A9A5 /* PianoRoll.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285184BA1F1E05F200A6A9A5 /* PianoRollTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +531,7 @@
 		285184911F1DFABE00A6A9A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PianoRoll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -533,6 +544,7 @@
 		285184921F1DFABE00A6A9A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PianoRoll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -573,6 +585,7 @@
 		285184B31F1E04AB00A6A9A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -585,6 +598,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.liamhealy.matthew.PianoRollLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -594,6 +608,7 @@
 		285184B41F1E04AB00A6A9A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -616,10 +631,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PianoRollLibTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.liamhealy.matthew.PianoRollLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PianoRoll.app/PianoRoll";
 			};
@@ -629,6 +646,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PianoRollLibTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.liamhealy.matthew.PianoRollLibTests;
