@@ -22,6 +22,7 @@
 		285184C01F1E0B5000A6A9A5 /* NoteRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184BF1F1E0B5000A6A9A5 /* NoteRendering.swift */; };
 		285184C21F1E0CD600A6A9A5 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C11F1E0CD600A6A9A5 /* NoteTests.swift */; };
 		285184C41F1E0D1F00A6A9A5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C31F1E0D1F00A6A9A5 /* Note.swift */; };
+		285184C61F1E0F3F00A6A9A5 /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C51F1E0F3F00A6A9A5 /* Assert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		285184BF1F1E0B5000A6A9A5 /* NoteRendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteRendering.swift; sourceTree = "<group>"; };
 		285184C11F1E0CD600A6A9A5 /* NoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		285184C31F1E0D1F00A6A9A5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		285184C51F1E0F3F00A6A9A5 /* Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				285184B91F1E05F200A6A9A5 /* PianoRollTests.swift */,
 				285184BD1F1E0AC300A6A9A5 /* MockNoteRendering.swift */,
 				285184C11F1E0CD600A6A9A5 /* NoteTests.swift */,
+				285184C51F1E0F3F00A6A9A5 /* Assert.swift */,
 			);
 			path = PianoRollLibTests;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				285184C21F1E0CD600A6A9A5 /* NoteTests.swift in Sources */,
+				285184C61F1E0F3F00A6A9A5 /* Assert.swift in Sources */,
 				285184BE1F1E0AC300A6A9A5 /* MockNoteRendering.swift in Sources */,
 				285184BA1F1E05F200A6A9A5 /* PianoRollTests.swift in Sources */,
 			);
