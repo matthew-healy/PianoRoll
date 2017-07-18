@@ -23,6 +23,14 @@ class PianoRollTests: XCTestCase {
         XCTAssertEqual([], mockRenderer.spyRenderedNotes)
     }
 
+    func test_render_multipleValidNotesAdded_passesAllNotesToRenderer() throws {
+        let expected = [Note(pitch: 1, length: 1), Note(pitch: 4, length: 2)]
+        try subject.addNote(pitch: 1, length: 1)
+        try subject.addNote(pitch: 4, length: 2)
+        subject.render(with: mockRenderer)
+        XCTAssertEqual(expected, mockRenderer.spyRenderedNotes)
+    }
+
     // MARK: addNote tests
 
     func test_addNote_pitchMinus1_throwsError() {

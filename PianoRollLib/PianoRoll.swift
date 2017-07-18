@@ -12,7 +12,7 @@ struct PianoRoll {
         guard isValid(length: length) else {
             throw PianoRollError.invalidLength
         }
-        notes = [Note(pitch: pitch, length: length)]
+        notes.append(Note(pitch: pitch, length: length))
     }
     
     private func isValid(pitch: Int) -> Bool {
