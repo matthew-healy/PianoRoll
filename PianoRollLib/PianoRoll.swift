@@ -11,14 +11,14 @@ struct PianoRoll {
         renderer.render(notes: notes)
     }
 
-    mutating func add(_ note: Note, atPosition position: Int) throws {
+    mutating func add(_ note: Note) throws {
         guard isValid(pitch: note.pitch) else {
             throw PianoRollError.pitchOutOfRange
         }
         guard isValid(length: note.length) else {
             throw PianoRollError.invalidLength
         }
-        guard isValid(position: position) && !notes.contains(note) else {
+        guard isValid(position: note.position) && !notes.contains(note) else {
             throw PianoRollError.invalidPosition
         }
         notes.append(note)
