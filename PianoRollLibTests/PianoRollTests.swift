@@ -136,4 +136,12 @@ class PianoRollTests: XCTestCase {
         )
     }
 
+    func test_add_positionOverlapsExistingNoteSlightly_throwsInvalidPositionError() throws {
+        try subject.add(.create(length: 8))
+        Assert.error(
+            PianoRollError.invalidPosition,
+            isThrownIn: try subject.add(.create(position: 7))
+        )
+    }
+
 }

@@ -39,8 +39,6 @@ struct PianoRoll {
     }
 
     private func overlapsExistingNote(_ note: Note) -> Bool {
-        return !notes.filter {
-            $0.position == note.position && $0.pitch == note.pitch
-        }.isEmpty
+        return !notes.filter(note.hasOverlap).isEmpty
     }
 }
