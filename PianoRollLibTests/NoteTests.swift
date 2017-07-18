@@ -65,6 +65,45 @@ class NoteTests: XCTestCase {
         (lhs, rhs) = (.create(position: 9), .create())
         Assert.symmetricNonEquality(lhs, rhs)
     }
+
+    // MARK: hasOverlap tests
+
+    var other: Note!
+
+    func test_hasOverlap_sameNote_true() {
+        (subject, other) = (.create(), .create())
+        XCTAssertTrue(subject.hasOverlap(with: other))
+    }
+
+    func test_hasOverlap_pitchesDiffer_false() {
+        (subject, other) = (.create(pitch: 120), .create())
+        XCTAssertFalse(subject.hasOverlap(with: other))
+    }
+
+    func test_hasOverlap_lengthsDiffer_true() {
+        (subject, other) = (.create(length: 5), .create())
+        XCTAssertTrue(subject.hasOverlap(with: other))
+    }
+
+    func test_hasOverlap_sameNoteButNoOverlap_false() {
+        (subject, other) = (.create(), .create(position: 50))
+        XCTAssertFalse(subject.hasOverlap(with: other))
+    }
+
+    func test_hasOverlap_distanceLessThanLength_true() {
+        (subject, other) = (.create(length: 3), .create(position: 2))
+        XCTAssertTrue(subject.hasOverlap(with: other))
+    }
+
+    func test_hasOverlap_farFromOriginWithOverlap_true() {
+        (subject, other) = (.create(length: 2, position: 30), .create(position: 31))
+        XCTAssertTrue(subject.hasOverlap(with: other))
+    }
+
+    func test_hasOverlap_subjectFirstNoOverlap_false() {
+        (subject, other) = (.create(), .create(position: 5))
+        XCTAssertFalse(subject.hasOverlap(with: other))
+    }
 }
 
 extension Note {
