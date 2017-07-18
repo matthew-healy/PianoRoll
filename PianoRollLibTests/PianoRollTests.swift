@@ -119,12 +119,20 @@ class PianoRollTests: XCTestCase {
         )
     }
 
-    func test_add_positionOccupiedByNoteOfSamePitch_throwsInvalidPositionError() throws {
+    func test_add_positionOccupiedByIdenticalNote_throwsInvalidPositionError() throws {
         let note: Note = .create()
         try subject.add(note)
         Assert.error(
             PianoRollError.invalidPosition,
             isThrownIn: try subject.add(note)
+        )
+    }
+
+    func test_add_positionOccupiedBySamePitchDifferentLength_throwsInvalidPositionError() throws {
+        try subject.add(.create(length: 1))
+        Assert.error(
+            PianoRollError.invalidPosition
+            , isThrownIn: try subject.add(.create(length: 2))
         )
     }
 

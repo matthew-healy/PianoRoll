@@ -18,7 +18,7 @@ struct PianoRoll {
         guard isValid(length: note.length) else {
             throw PianoRollError.invalidLength
         }
-        guard isValid(position: note.position) && !notes.contains(note) else {
+        guard isValid(position: note.position) && !overlapsExistingNote(note) else {
             throw PianoRollError.invalidPosition
         }
         notes.append(note)
@@ -36,5 +36,11 @@ struct PianoRoll {
     private func isValid(position: Int) -> Bool {
         let positionRange = 0..<timeStepCount
         return positionRange.contains(position)
+    }
+
+    private func overlapsExistingNote(_ note: Note) -> Bool {
+        return !notes.filter {
+            $0.position == note.position && $0.pitch == note.pitch
+        }.isEmpty
     }
 }
