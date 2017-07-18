@@ -23,6 +23,7 @@
 		285184C21F1E0CD600A6A9A5 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C11F1E0CD600A6A9A5 /* NoteTests.swift */; };
 		285184C41F1E0D1F00A6A9A5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C31F1E0D1F00A6A9A5 /* Note.swift */; };
 		285184C61F1E0F3F00A6A9A5 /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C51F1E0F3F00A6A9A5 /* Assert.swift */; };
+		285184C81F1E13F800A6A9A5 /* PianoRollError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C71F1E13F800A6A9A5 /* PianoRollError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		285184C11F1E0CD600A6A9A5 /* NoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		285184C31F1E0D1F00A6A9A5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		285184C51F1E0F3F00A6A9A5 /* Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
+		285184C71F1E13F800A6A9A5 /* PianoRollError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				285184BB1F1E061400A6A9A5 /* PianoRoll.swift */,
 				285184BF1F1E0B5000A6A9A5 /* NoteRendering.swift */,
 				285184C31F1E0D1F00A6A9A5 /* Note.swift */,
+				285184C71F1E13F800A6A9A5 /* PianoRollError.swift */,
 			);
 			path = PianoRollLib;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				285184C01F1E0B5000A6A9A5 /* NoteRendering.swift in Sources */,
+				285184C81F1E13F800A6A9A5 /* PianoRollError.swift in Sources */,
 				285184BC1F1E061400A6A9A5 /* PianoRoll.swift in Sources */,
 				285184C41F1E0D1F00A6A9A5 /* Note.swift in Sources */,
 			);
