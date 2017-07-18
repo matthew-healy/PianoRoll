@@ -18,7 +18,7 @@ struct PianoRoll {
         guard isValid(length: note.length) else {
             throw PianoRollError.invalidLength
         }
-        guard isValid(position: position) else {
+        guard isValid(position: position) && !notes.contains(note) else {
             throw PianoRollError.invalidPosition
         }
         notes.append(note)

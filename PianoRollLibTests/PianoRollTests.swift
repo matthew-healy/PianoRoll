@@ -119,4 +119,13 @@ class PianoRollTests: XCTestCase {
         )
     }
 
+    func test_addAtPosition_positionAlreadyOccupied_throwsInvalidPositionError() throws {
+        let note: Note = .create()
+        try subject.add(note, atPosition: 0)
+        Assert.error(
+            PianoRollError.invalidPosition,
+            isThrownIn: try subject.add(note, atPosition: 0)
+        )
+    }
+
 }
