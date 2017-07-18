@@ -28,6 +28,26 @@ class NoteTests: XCTestCase {
         subject = .create(length: 5)
         XCTAssertEqual(5, subject.length)
     }
+
+    // MARK: equals tests
+
+    var lhs: Note!
+    var rhs: Note!
+
+    func test_equals_propertiesMatch_true() {
+        (lhs, rhs) = (.create(), .create())
+        Assert.symmetricEquality(lhs, rhs)
+    }
+
+    func test_equals_pitchesDiffer_false() {
+        (lhs, rhs) = (.create(pitch: 5), .create())
+        Assert.symmetricNonEquality(lhs, rhs)
+    }
+
+    func test_equals_lengthsDiffer_false() {
+        (lhs, rhs) = (.create(length: 12), .create())
+        Assert.symmetricNonEquality(lhs, rhs)
+    }
 }
 
 extension Note {
