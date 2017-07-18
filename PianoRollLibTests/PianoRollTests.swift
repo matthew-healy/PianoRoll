@@ -30,9 +30,10 @@ class PianoRollTests: XCTestCase {
     }
 
     func test_addNote_pitchMinus5_throwsPitchOutOfRangeError() {
-        XCTAssertThrowsError(try subject.addNote(pitch: -5, length: 1), "") { thrownError in
-            XCTAssertEqual(PianoRollError.pitchOutOfRange, thrownError as? PianoRollError)
-        }
+        Assert.error(
+            PianoRollError.pitchOutOfRange,
+            isThrownIn: try subject.addNote(pitch: -5, length: 1)
+        )
     }
 
     func test_addNote_pitch100Length4_isRendered() throws {
