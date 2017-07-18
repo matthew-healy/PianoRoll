@@ -29,6 +29,18 @@ class NoteTests: XCTestCase {
         XCTAssertEqual(5, subject.length)
     }
 
+    // MARK: position tests
+
+    func test_position_0_returns0() {
+        subject = .create(position: 0)
+        XCTAssertEqual(0, subject.position)
+    }
+
+    func test_position_5_returns5() {
+        subject = .create(position: 5)
+        XCTAssertEqual(5, subject.position)
+    }
+
     // MARK: equals tests
 
     var lhs: Note!
@@ -48,16 +60,23 @@ class NoteTests: XCTestCase {
         (lhs, rhs) = (.create(length: 12), .create())
         Assert.symmetricNonEquality(lhs, rhs)
     }
+
+    func test_equals_positionsDiffer_false() {
+        (lhs, rhs) = (.create(position: 9), .create())
+        Assert.symmetricNonEquality(lhs, rhs)
+    }
 }
 
 extension Note {
     static func create(
         pitch: Int = 0,
-        length: Int = 1
+        length: Int = 1,
+        position: Int = 0
     ) -> Note {
         return Note(
             pitch: pitch,
-            length: length
+            length: length,
+            position: position
         )
     }
 }
