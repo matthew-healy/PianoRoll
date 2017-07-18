@@ -35,6 +35,43 @@ class PianoRollTests: XCTestCase {
             isThrownIn: try subject.addNote(pitch: -5, length: 1)
         )
     }
+    
+    func test_addNote_pitch128_throwsPitchOutOfRangeError() {
+        Assert.error(
+            PianoRollError.pitchOutOfRange,
+            isThrownIn: try subject.addNote(pitch: 128, length: 1)
+        )
+    }
+    
+    func test_addNote_pitch144_throwsPitchOutOfRangeError() {
+        Assert.error(
+            PianoRollError.pitchOutOfRange,
+            isThrownIn: try subject.addNote(pitch: 144, length: 1)
+        )
+    }
+    
+    func test_addNote_lengthMinus1_throwsError() {
+        XCTAssertThrowsError(try subject.addNote(pitch: 0, length: -1))
+    }
+    
+    func test_addNote_lengthMinus5_throwsInvalidLengthError() {
+        Assert.error(
+            PianoRollError.invalidLength,
+            isThrownIn: try subject.addNote(pitch: 0, length: -5)
+        )
+    }
+    
+    func test_addNote_length0_throwsInvalidLengthError() {
+        Assert.error(
+            PianoRollError.invalidLength,
+            isThrownIn: try subject.addNote(pitch: 0, length: 0))
+    }
+    
+    func test_addNote_pitch0Length2_isRendered() throws {
+        try subject.addNote(pitch: 0, length: 2)
+        subject.render(with: mockRenderer)
+        XCTAssertEqual([Note(pitch: 0, length: 2)], mockRenderer.spyRenderedNotes)
+    }
 
     func test_addNote_pitch100Length4_isRendered() throws {
         try subject.addNote(pitch: 100, length: 4)

@@ -6,9 +6,20 @@ struct PianoRoll {
     }
 
     mutating func addNote(pitch: Int, length: Int) throws {
-        guard pitch > 0 else {
+        guard isValid(pitch: pitch) else {
             throw PianoRollError.pitchOutOfRange
         }
-        notes.append(Note(pitch: 100, length: 4))
+        guard isValid(length: length) else {
+            throw PianoRollError.invalidLength
+        }
+        notes = [Note(pitch: pitch, length: length)]
+    }
+    
+    private func isValid(pitch: Int) -> Bool {
+        return pitch >= 0 && pitch < 128
+    }
+    
+    private func isValid(length: Int) -> Bool {
+        return length > 0
     }
 }
