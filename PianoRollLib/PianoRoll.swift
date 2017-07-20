@@ -1,13 +1,14 @@
 public struct PianoRoll {
     private var notes: [Note] = []
     private let timeStepCount: Int
+    private let midiRange = 0...127
 
     public init(timeStepCount: Int) {
         assert(timeStepCount > 0)
         self.timeStepCount = timeStepCount
     }
 
-    func render(with renderer: NoteRendering) {
+    public func render(with renderer: NoteRendering) {
         renderer.render(notes: notes)
     }
 
@@ -29,7 +30,6 @@ public struct PianoRoll {
     }
 
     private func isValid(pitch: Int) -> Bool {
-        let midiRange = 0..<128
         return midiRange.contains(pitch)
     }
     
