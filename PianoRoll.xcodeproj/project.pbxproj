@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		285184771F1DFABE00A6A9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184761F1DFABE00A6A9A5 /* AppDelegate.swift */; };
-		285184791F1DFABE00A6A9A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184781F1DFABE00A6A9A5 /* ViewController.swift */; };
+		285184791F1DFABE00A6A9A5 /* PianoRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184781F1DFABE00A6A9A5 /* PianoRollViewController.swift */; };
 		2851847C1F1DFABE00A6A9A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2851847A1F1DFABE00A6A9A5 /* Main.storyboard */; };
 		2851847E1F1DFABE00A6A9A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2851847D1F1DFABE00A6A9A5 /* Assets.xcassets */; };
 		285184811F1DFABE00A6A9A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2851847F1F1DFABE00A6A9A5 /* LaunchScreen.storyboard */; };
@@ -24,6 +24,7 @@
 		285184C41F1E0D1F00A6A9A5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C31F1E0D1F00A6A9A5 /* Note.swift */; };
 		285184C61F1E0F3F00A6A9A5 /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C51F1E0F3F00A6A9A5 /* Assert.swift */; };
 		285184C81F1E13F800A6A9A5 /* PianoRollError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C71F1E13F800A6A9A5 /* PianoRollError.swift */; };
+		285184CA1F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C91F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,7 @@
 /* Begin PBXFileReference section */
 		285184731F1DFABE00A6A9A5 /* PianoRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PianoRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285184761F1DFABE00A6A9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		285184781F1DFABE00A6A9A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		285184781F1DFABE00A6A9A5 /* PianoRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoRollViewController.swift; sourceTree = "<group>"; };
 		2851847B1F1DFABE00A6A9A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2851847D1F1DFABE00A6A9A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		285184801F1DFABE00A6A9A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		285184C31F1E0D1F00A6A9A5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		285184C51F1E0F3F00A6A9A5 /* Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
 		285184C71F1E13F800A6A9A5 /* PianoRollError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollError.swift; sourceTree = "<group>"; };
+		285184C91F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,11 +158,12 @@
 			isa = PBXGroup;
 			children = (
 				285184761F1DFABE00A6A9A5 /* AppDelegate.swift */,
-				285184781F1DFABE00A6A9A5 /* ViewController.swift */,
+				285184781F1DFABE00A6A9A5 /* PianoRollViewController.swift */,
 				2851847A1F1DFABE00A6A9A5 /* Main.storyboard */,
 				2851847D1F1DFABE00A6A9A5 /* Assets.xcassets */,
 				2851847F1F1DFABE00A6A9A5 /* LaunchScreen.storyboard */,
 				285184821F1DFABE00A6A9A5 /* Info.plist */,
+				285184C91F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift */,
 			);
 			path = PianoRoll;
 			sourceTree = "<group>";
@@ -377,7 +380,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				285184791F1DFABE00A6A9A5 /* ViewController.swift in Sources */,
+				285184CA1F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift in Sources */,
+				285184791F1DFABE00A6A9A5 /* PianoRollViewController.swift in Sources */,
 				285184771F1DFABE00A6A9A5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
