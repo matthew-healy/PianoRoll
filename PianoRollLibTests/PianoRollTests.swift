@@ -160,9 +160,23 @@ class PianoRollTests: XCTestCase {
 
     // MARK: removeNote(withPitch:atTime:) tests
 
+    func test_remove_pitchOutOfRange_throwsPitchOutOfRangeError() {
+        Assert.error(
+            PianoRollError.pitchOutOfRange,
+            isThrownIn: try subject.removeNote(withPitch: -1, atTime: 5)
+        )
+    }
+
+    func test_remove_timeOutOfRange_throwsInvalidPosition() {
+        Assert.error(
+            PianoRollError.invalidPosition,
+            isThrownIn: try subject.removeNote(withPitch: 0, atTime: 500)
+        )
+    }
+
     func test_remove_noteIsThere_removesIt() throws {
         try addNote()
-        subject.removeNote(withPitch: 0, atTime: 0)
+        try subject.removeNote(withPitch: 0, atTime: 0)
         subject.render(with: mockRenderer)
         XCTAssertTrue(mockRenderer.spyRenderedNotes.isEmpty)
     }
@@ -174,14 +188,14 @@ class PianoRollTests: XCTestCase {
 
     func test_remove_noteIsNotThere_nothingIsRemoved() throws {
         try addNote()
-        subject.removeNote(withPitch: 1, atTime: 1)
+        try subject.removeNote(withPitch: 1, atTime: 1)
         subject.render(with: mockRenderer)
         XCTAssertFalse(mockRenderer.spyRenderedNotes.isEmpty)
     }
 
     func test_remove_touchIsWithinNoteButNotAtRoot_removesNote() throws {
         try addNote(length: 5)
-        subject.removeNote(withPitch: 0, atTime: 4)
+        try subject.removeNote(withPitch: 0, atTime: 4)
         subject.render(with: mockRenderer)
         XCTAssertTrue(mockRenderer.spyRenderedNotes.isEmpty)
     }
@@ -189,8 +203,9 @@ class PianoRollTests: XCTestCase {
     func test_remove_noteIsNotFirstInArray_stillRemoves() throws {
         try addNote()
         try addNote(pitch: 3)
-        subject.removeNote(withPitch: 3, atTime: 0)
+        try subject.removeNote(withPitch: 3, atTime: 0)
         subject.render(with: mockRenderer)
         XCTAssertEqual([.create()], mockRenderer.spyRenderedNotes)
     }
+
 }

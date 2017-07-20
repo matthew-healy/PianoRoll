@@ -12,9 +12,7 @@ public struct PianoRoll {
     }
 
     public mutating func add(_ note: Note) throws {
-        guard isValid(pitch: note.pitch) else {
-            throw PianoRollError.pitchOutOfRange
-        }
+        try validate(pitch: note.pitch)
         guard isValid(position: note.position) && !overlapsExistingNote(note) else {
             throw PianoRollError.invalidPosition
         }
@@ -24,6 +22,12 @@ public struct PianoRoll {
         notes.append(note)
     }
     
+    private func validate(pitch: Int) throws {
+        guard isValid(pitch: pitch) else {
+            throw PianoRollError.pitchOutOfRange
+        }
+    }
+
     private func isValid(pitch: Int) -> Bool {
         let midiRange = 0..<128
         return midiRange.contains(pitch)
@@ -42,7 +46,11 @@ public struct PianoRoll {
         return !notes.filter(note.hasOverlap).isEmpty
     }
 
-    public mutating func removeNote(withPitch pitch: Int, atTime time: Int) {
+    public mutating func removeNote(withPitch pitch: Int, atTime time: Int) throws {
+        try validate(pitch: pitch)
+        guard isValid(position: time) else {
+            throw PianoRollError.invalidPosition
+        }
         notes = notes.filter { note -> Bool in
             guard note.pitch == pitch else { return true }
             let validPositions = note.position...(note.position + note.length)
