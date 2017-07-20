@@ -158,4 +158,39 @@ class PianoRollTests: XCTestCase {
         )
     }
 
+    // MARK: removeNote(withPitch:atTime:) tests
+
+    func test_remove_noteIsThere_removesIt() throws {
+        try addNote()
+        subject.removeNote(withPitch: 0, atTime: 0)
+        subject.render(with: mockRenderer)
+        XCTAssertTrue(mockRenderer.spyRenderedNotes.isEmpty)
+    }
+
+    private func addNote(pitch: Int = 0, length: Int = 1, position: Int = 0) throws {
+        let note: Note = .create(pitch: pitch, length: length, position: position)
+        try subject.add(note)
+    }
+
+    func test_remove_noteIsNotThere_nothingIsRemoved() throws {
+        try addNote()
+        subject.removeNote(withPitch: 1, atTime: 1)
+        subject.render(with: mockRenderer)
+        XCTAssertFalse(mockRenderer.spyRenderedNotes.isEmpty)
+    }
+
+    func test_remove_touchIsWithinNoteButNotAtRoot_removesNote() throws {
+        try addNote(length: 5)
+        subject.removeNote(withPitch: 0, atTime: 4)
+        subject.render(with: mockRenderer)
+        XCTAssertTrue(mockRenderer.spyRenderedNotes.isEmpty)
+    }
+
+    func test_remove_noteIsNotFirstInArray_stillRemoves() throws {
+        try addNote()
+        try addNote(pitch: 3)
+        subject.removeNote(withPitch: 3, atTime: 0)
+        subject.render(with: mockRenderer)
+        XCTAssertEqual([.create()], mockRenderer.spyRenderedNotes)
+    }
 }

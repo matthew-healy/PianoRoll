@@ -41,4 +41,12 @@ struct PianoRoll {
     private func overlapsExistingNote(_ note: Note) -> Bool {
         return !notes.filter(note.hasOverlap).isEmpty
     }
+
+    mutating func removeNote(withPitch pitch: Int, atTime time: Int) {
+        notes = notes.filter { note -> Bool in
+            guard note.pitch == pitch else { return true }
+            let validPositions = note.position...(note.position + note.length)
+            return !validPositions.contains(time)
+        }
+    }
 }
