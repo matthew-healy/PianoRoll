@@ -11,6 +11,23 @@ class PianoRollTests: XCTestCase {
         subject = PianoRoll(timeStepCount: 10)
     }
 
+    // MARK: numberOfPitches tests
+
+    func test_numberOfPitches_128() {
+        XCTAssertEqual(128, subject.numberOfPitches)
+    }
+
+    // MARK: numberOfTimeSteps tests
+
+    func test_numberOfTimeSteps_timeStepCountIs10_10() {
+        XCTAssertEqual(10, subject.numberOfTimeSteps)
+    }
+
+    func test_numberOfTimeSteps_timeStepCountIs25_25() {
+        subject = PianoRoll(timeStepCount: 25)
+        XCTAssertEqual(25, subject.numberOfTimeSteps)
+    }
+
     // MARK: render tests
 
     func test_render_callsRenderOnRenderer() {

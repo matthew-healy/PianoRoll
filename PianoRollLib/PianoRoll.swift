@@ -3,6 +3,14 @@ public struct PianoRoll {
     private let timeStepCount: Int
     private let midiRange = 0...127
 
+    public var numberOfPitches: Int {
+        return midiRange.count
+    }
+
+    public var numberOfTimeSteps: Int {
+        return timeStepCount
+    }
+
     public init(timeStepCount: Int) {
         assert(timeStepCount > 0)
         self.timeStepCount = timeStepCount
