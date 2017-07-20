@@ -15,11 +15,11 @@ struct PianoRoll {
         guard isValid(pitch: note.pitch) else {
             throw PianoRollError.pitchOutOfRange
         }
-        guard hasValidLength(note) else {
-            throw PianoRollError.invalidLength
-        }
         guard isValid(position: note.position) && !overlapsExistingNote(note) else {
             throw PianoRollError.invalidPosition
+        }
+        guard hasValidLength(note) else {
+            throw PianoRollError.invalidLength
         }
         notes.append(note)
     }
