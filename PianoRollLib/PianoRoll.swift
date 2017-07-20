@@ -1,8 +1,8 @@
-struct PianoRoll {
+public struct PianoRoll {
     private var notes: [Note] = []
     private let timeStepCount: Int
 
-    init(timeStepCount: Int) {
+    public init(timeStepCount: Int) {
         assert(timeStepCount > 0)
         self.timeStepCount = timeStepCount
     }
@@ -11,7 +11,7 @@ struct PianoRoll {
         renderer.render(notes: notes)
     }
 
-    mutating func add(_ note: Note) throws {
+    public mutating func add(_ note: Note) throws {
         guard isValid(pitch: note.pitch) else {
             throw PianoRollError.pitchOutOfRange
         }
@@ -42,7 +42,7 @@ struct PianoRoll {
         return !notes.filter(note.hasOverlap).isEmpty
     }
 
-    mutating func removeNote(withPitch pitch: Int, atTime time: Int) {
+    public mutating func removeNote(withPitch pitch: Int, atTime time: Int) {
         notes = notes.filter { note -> Bool in
             guard note.pitch == pitch else { return true }
             let validPositions = note.position...(note.position + note.length)

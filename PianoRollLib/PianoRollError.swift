@@ -1,4 +1,4 @@
-enum PianoRollError: Error {
+public enum PianoRollError: Error {
     case pitchOutOfRange
     case invalidLength
     case invalidPosition
