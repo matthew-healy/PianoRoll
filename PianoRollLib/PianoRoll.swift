@@ -1,26 +1,26 @@
-public struct PianoRoll {
+struct PianoRoll {
     private var notes: [Note] = []
     private let timeStepCount: Int
     private let midiRange = 0...127
 
-    public var numberOfPitches: Int {
+    var numberOfPitches: Int {
         return midiRange.count
     }
 
-    public var numberOfTimeSteps: Int {
+    var numberOfTimeSteps: Int {
         return timeStepCount
     }
 
-    public init(timeStepCount: Int) {
+    init(timeStepCount: Int) {
         assert(timeStepCount > 0)
         self.timeStepCount = timeStepCount
     }
 
-    public func render(with renderer: NoteRendering) {
+    func render(with renderer: NoteRendering) {
         renderer.render(notes: notes)
     }
 
-    public mutating func add(_ note: Note) throws {
+    mutating func add(_ note: Note) throws {
         try validate(pitch: note.pitch)
         guard isValid(position: note.position) && !overlapsExistingNote(note) else {
             throw PianoRollError.invalidPosition
@@ -54,7 +54,7 @@ public struct PianoRoll {
         return !notes.filter(note.hasOverlap).isEmpty
     }
 
-    public mutating func removeNote(withPitch pitch: Int, atTime time: Int) throws {
+    mutating func removeNote(withPitch pitch: Int, atTime time: Int) throws {
         try validate(pitch: pitch)
         guard isValid(position: time) else {
             throw PianoRollError.invalidPosition
@@ -66,7 +66,7 @@ public struct PianoRoll {
         }
     }
 
-    public func hasNote(withPitch pitch: Int, atTime time: Int) -> Bool {
+    func hasNote(withPitch pitch: Int, atTime time: Int) -> Bool {
         guard isValid(position: time) else { return false }
         let proxyNote = Note(pitch: pitch, length: 1, position: time)
         return overlapsExistingNote(proxyNote)

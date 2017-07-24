@@ -25,7 +25,6 @@
 		285184C61F1E0F3F00A6A9A5 /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C51F1E0F3F00A6A9A5 /* Assert.swift */; };
 		285184C81F1E13F800A6A9A5 /* PianoRollError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C71F1E13F800A6A9A5 /* PianoRollError.swift */; };
 		285184CA1F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184C91F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift */; };
-		285184CC1F20C44100A6A9A5 /* PianoRollCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184CB1F20C44100A6A9A5 /* PianoRollCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +96,6 @@
 		285184C51F1E0F3F00A6A9A5 /* Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
 		285184C71F1E13F800A6A9A5 /* PianoRollError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollError.swift; sourceTree = "<group>"; };
 		285184C91F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollCollectionViewCell.swift; sourceTree = "<group>"; };
-		285184CB1F20C44100A6A9A5 /* PianoRollCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +164,6 @@
 				2851847F1F1DFABE00A6A9A5 /* LaunchScreen.storyboard */,
 				285184821F1DFABE00A6A9A5 /* Info.plist */,
 				285184C91F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift */,
-				285184CB1F20C44100A6A9A5 /* PianoRollCollectionViewLayout.swift */,
 			);
 			path = PianoRoll;
 			sourceTree = "<group>";
@@ -386,7 +383,6 @@
 				285184CA1F20BB2D00A6A9A5 /* PianoRollCollectionViewCell.swift in Sources */,
 				285184791F1DFABE00A6A9A5 /* PianoRollViewController.swift in Sources */,
 				285184771F1DFABE00A6A9A5 /* AppDelegate.swift in Sources */,
-				285184CC1F20C44100A6A9A5 /* PianoRollCollectionViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +703,7 @@
 				285184921F1DFABE00A6A9A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		285184931F1DFABE00A6A9A5 /* Build configuration list for PBXNativeTarget "PianoRollTests" */ = {
 			isa = XCConfigurationList;
@@ -715,6 +712,7 @@
 				285184951F1DFABE00A6A9A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		285184B21F1E04AB00A6A9A5 /* Build configuration list for PBXNativeTarget "PianoRollLib" */ = {
 			isa = XCConfigurationList;
@@ -723,6 +721,7 @@
 				285184B41F1E04AB00A6A9A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		285184B61F1E04AB00A6A9A5 /* Build configuration list for PBXNativeTarget "PianoRollLibTests" */ = {
 			isa = XCConfigurationList;
@@ -731,6 +730,7 @@
 				285184B81F1E04AB00A6A9A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
