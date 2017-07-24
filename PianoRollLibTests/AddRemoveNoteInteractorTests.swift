@@ -5,14 +5,21 @@ class AddRemoveNoteInteractorTests: XCTestCase {
     
     var mockNoteEditing: MockNoteEditing!
     var mockRenderable: MockNoteRenderable!
+    var mockRendering: MockNoteRendering!
     var mockDelegate: MockAddRemoveNoteInteractionDelegate!
     var subject: AddRemoveNoteInteractor!
 
     override func setUp() {
         mockNoteEditing = MockNoteEditing()
         mockRenderable = MockNoteRenderable()
+        mockRendering = MockNoteRendering()
         mockDelegate = MockAddRemoveNoteInteractionDelegate()
-        subject = AddRemoveNoteInteractor(noteEditor: mockNoteEditing, renderable: mockRenderable, delegate: mockDelegate)
+        subject = AddRemoveNoteInteractor(
+            noteEditor: mockNoteEditing,
+            renderable: mockRenderable,
+            renderer: mockRendering,
+            delegate: mockDelegate
+        )
     }
 
     // MARK: tapReceived(at:) tests
@@ -82,6 +89,11 @@ class AddRemoveNoteInteractorTests: XCTestCase {
     func test_tapReceived_noErrorThrown_renders() {
         subject.tapReceived(at: .create())
         XCTAssertTrue(mockRenderable.didRender)
+    }
+
+    func test_tapReceived_passesRendererToRenderable() {
+        subject.tapReceived(at: .create())
+        XCTAssertTrue(mockRendering === mockRenderable.spyRenderer)
     }
 
 }

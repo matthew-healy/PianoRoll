@@ -1,18 +1,20 @@
-class AddRemoveNoteInteractor: NoteRendering {
+class AddRemoveNoteInteractor {
     private let noteEditor: NoteEditing
     private let renderable: NoteRenderable
+    private unowned let renderer: NoteRendering
     private unowned let delegate: AddRemoveNoteInteractionDelegate
 
-    init(noteEditor: NoteEditing, renderable: NoteRenderable, delegate: AddRemoveNoteInteractionDelegate) {
+    init(noteEditor: NoteEditing, renderable: NoteRenderable, renderer: NoteRendering, delegate: AddRemoveNoteInteractionDelegate) {
         self.noteEditor = noteEditor
         self.renderable = renderable
+        self.renderer = renderer
         self.delegate = delegate
     }
 
     func tapReceived(at coordinate: PianoRollCoordinate) {
         do {
             try handleTap(at: coordinate)
-            renderable.render(with: self)
+            renderable.render(with: renderer)
         } catch {
             guard let error = error as? PianoRollError else { return }
             delegate.received(error: error)
@@ -25,9 +27,5 @@ class AddRemoveNoteInteractor: NoteRendering {
         } else {
             try noteEditor.addNote(at: coordinate)
         }
-    }
-
-    func render(notes: [Note]) {
-
     }
 }
