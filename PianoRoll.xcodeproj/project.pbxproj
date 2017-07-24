@@ -29,6 +29,7 @@
 		28700F191F26180100170418 /* PianoRollInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F181F26180100170418 /* PianoRollInteractorTests.swift */; };
 		28700F1B1F261AAA00170418 /* PianoRollCoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F1A1F261AAA00170418 /* PianoRollCoordinateTests.swift */; };
 		28700F1D1F261AB400170418 /* PianoRollCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F1C1F261AB400170418 /* PianoRollCoordinate.swift */; };
+		28700F1F1F2623B100170418 /* MockNoteEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F1E1F2623B100170418 /* MockNoteEditing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		28700F181F26180100170418 /* PianoRollInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollInteractorTests.swift; sourceTree = "<group>"; };
 		28700F1A1F261AAA00170418 /* PianoRollCoordinateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollCoordinateTests.swift; sourceTree = "<group>"; };
 		28700F1C1F261AB400170418 /* PianoRollCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollCoordinate.swift; sourceTree = "<group>"; };
+		28700F1E1F2623B100170418 /* MockNoteEditing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoteEditing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				285184C51F1E0F3F00A6A9A5 /* Assert.swift */,
 				28700F181F26180100170418 /* PianoRollInteractorTests.swift */,
 				28700F1A1F261AAA00170418 /* PianoRollCoordinateTests.swift */,
+				28700F1E1F2623B100170418 /* MockNoteEditing.swift */,
 			);
 			path = PianoRollLibTests;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				28700F191F26180100170418 /* PianoRollInteractorTests.swift in Sources */,
 				28700F1B1F261AAA00170418 /* PianoRollCoordinateTests.swift in Sources */,
 				285184BA1F1E05F200A6A9A5 /* PianoRollTests.swift in Sources */,
+				28700F1F1F2623B100170418 /* MockNoteEditing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
