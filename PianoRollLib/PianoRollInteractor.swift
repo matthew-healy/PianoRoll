@@ -6,7 +6,11 @@ class PianoRollInteractor {
     }
 
     func tapReceived(at coordinate: PianoRollCoordinate) {
-        try! noteEditor.addNote(at: PianoRollCoordinate(pitch: 0, time: 0))
+        if noteEditor.hasNote(at: PianoRollCoordinate(pitch: 0, time: 0)) {
+            try! noteEditor.removeNote(at: PianoRollCoordinate(pitch: 0, time: 0))
+        } else {
+            try! noteEditor.addNote(at: PianoRollCoordinate(pitch: 0, time: 0))
+        }
     }
 }
 
