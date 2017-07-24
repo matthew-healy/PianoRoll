@@ -1,5 +1,5 @@
 protocol NoteEditing {
-    func add(_ note: Note) throws
+    func addNote(at coordinate: PianoRollCoordinate) throws
     func removeNote(at coordinate: PianoRollCoordinate) throws
     func hasNote(at coordinate: PianoRollCoordinate) -> Bool
 }
@@ -26,14 +26,12 @@ class PianoRoll: NoteEditing {
         renderer.render(notes: notes)
     }
 
-    func add(_ note: Note) throws {
-        try validate(pitch: note.pitch)
-        guard isValid(position: note.position) && !overlapsExistingNote(note) else {
+    func addNote(at coordinate: PianoRollCoordinate) throws {
+        try validate(pitch: coordinate.pitch)
+        guard isValid(position: coordinate.time) && !overlapsExistingNote(coordinate) else {
             throw PianoRollError.invalidPosition
         }
-        guard hasValidLength(note) else {
-            throw PianoRollError.invalidLength
-        }
+        let note = Note(pitch: coordinate.pitch, length: 1, position: coordinate.time)
         notes.append(note)
     }
     
@@ -56,8 +54,9 @@ class PianoRoll: NoteEditing {
         return positionRange.contains(position)
     }
 
-    private func overlapsExistingNote(_ note: Note) -> Bool {
-        return !notes.filter(note.hasOverlap).isEmpty
+    private func overlapsExistingNote(_ coordinate: PianoRollCoordinate) -> Bool {
+        let proxyNote = Note(pitch: coordinate.pitch, length: 1, position: coordinate.time)
+        return !notes.filter(proxyNote.hasOverlap).isEmpty
     }
 
     func removeNote(at coordinate: PianoRollCoordinate) throws {
@@ -74,7 +73,6 @@ class PianoRoll: NoteEditing {
 
     func hasNote(at coordinate: PianoRollCoordinate) -> Bool {
         guard isValid(position: coordinate.time) else { return false }
-        let proxyNote = Note(pitch: coordinate.pitch, length: 1, position: coordinate.time)
-        return overlapsExistingNote(proxyNote)
+        return overlapsExistingNote(coordinate)
     }
 }

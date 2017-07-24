@@ -41,141 +41,90 @@ class PianoRollTests: XCTestCase {
     }
 
     func test_render_multipleValidNotesAdded_passesAllNotesToRenderer() throws {
-        let expected: [Note] = [.create(), .create(pitch: 4, length: 2)]
-        try subject.add(expected[0])
-        try subject.add(expected[1])
+        let expected: [Note] = [.create(), .create(pitch: 4)]
+        try subject.addNote(at: .create())
+        try subject.addNote(at: .create(pitch: 4))
         subject.render(with: mockRenderer)
         XCTAssertEqual(expected, mockRenderer.spyRenderedNotes)
     }
 
-    // MARK: add tests
+    // MARK: addNote(at:) tests
 
     func test_add_pitchMinus1_throwsError() {
-        XCTAssertThrowsError(try subject.add(.create(pitch: -1)))
+        XCTAssertThrowsError(try subject.addNote(at: .create(pitch: -1)))
     }
 
     func test_add_pitchMinus5_throwsPitchOutOfRangeError() {
         Assert.error(
             PianoRollError.pitchOutOfRange,
-            isThrownIn: try subject.add(.create(pitch: -5))
+            isThrownIn: try subject.addNote(at: .create(pitch: -5))
         )
     }
     
     func test_add_pitch128_throwsPitchOutOfRangeError() {
         Assert.error(
             PianoRollError.pitchOutOfRange,
-            isThrownIn: try subject.add(.create(pitch: 128))
+            isThrownIn: try subject.addNote(at: .create(pitch: 128))
         )
     }
     
     func test_add_pitch144_throwsPitchOutOfRangeError() {
         Assert.error(
             PianoRollError.pitchOutOfRange,
-            isThrownIn: try subject.add(.create(pitch: 144))
+            isThrownIn: try subject.addNote(at: .create(pitch: 144))
         )
     }
     
-    func test_add_lengthMinus1_throwsError() {
-        XCTAssertThrowsError(try subject.add(.create(length: -1)))
-    }
-    
-    func test_add_lengthMinus5_throwsInvalidLengthError() {
-        Assert.error(
-            PianoRollError.invalidLength,
-            isThrownIn: try subject.add(.create(length: -5))
-        )
-    }
-    
-    func test_add_length0_throwsInvalidLengthError() {
-        Assert.error(
-            PianoRollError.invalidLength,
-            isThrownIn: try subject.add(.create(length: 0))
-        )
-    }
-    
-    func test_add_positionPlusLengthIsEqualToStepCount_throwsInvalidLengthError() {
-        Assert.error(
-            PianoRollError.invalidLength,
-            isThrownIn: try subject.add(.create(length: 2, position: 8))
-        )
-    }
-
-    func test_add_positionPlusLengthIsGreaterThanStepCount_throwsInvalidLengthError() {
-        Assert.error(
-            PianoRollError.invalidLength,
-            isThrownIn: try subject.add(.create(length: 2, position: 9))
-        )
-    }
-
-    func test_add_pitch0Length2_isRendered() throws {
-        let expected: Note = .create(length: 2)
-        try subject.add(expected)
+    func test_add_pitch0_isRendered() throws {
+        try subject.addNote(at: .create())
         subject.render(with: mockRenderer)
-        XCTAssertEqual([expected], mockRenderer.spyRenderedNotes)
+        XCTAssertEqual([.create()], mockRenderer.spyRenderedNotes)
     }
 
-    func test_add_pitch100Length4_isRendered() throws {
-        let expected: Note = .create(pitch: 100, length: 4)
-        try subject.add(expected)
+    func test_add_pitch100_isRendered() throws {
+        try subject.addNote(at: .create(pitch: 100))
         subject.render(with: mockRenderer)
-        XCTAssertEqual([expected], mockRenderer.spyRenderedNotes)
+        XCTAssertEqual([.create(pitch: 100)], mockRenderer.spyRenderedNotes)
     }
 
-    func test_add_positionIsNegative_throwsInvalidPositionError() {
+    func test_add_timeIsNegative_throwsInvalidPositionError() {
         Assert.error(
             PianoRollError.invalidPosition,
-            isThrownIn: try subject.add(.create(position: -1))
+            isThrownIn: try subject.addNote(at: .create(time: -1))
         )
     }
 
     func test_add_minus10_throwsInvalidPositionError() {
         Assert.error(
             PianoRollError.invalidPosition,
-            isThrownIn: try subject.add(.create(position: -10))
+            isThrownIn: try subject.addNote(at: .create(time: -10))
         )
     }
 
     func test_add_10_timeStepCountIs10_throwsInvalidPositionError() {
         Assert.error(
             PianoRollError.invalidPosition,
-            isThrownIn: try subject.add(.create(position: 10))
+            isThrownIn: try subject.addNote(at: .create(time: 10))
         )
     }
 
     func test_add_9_timeStepCount8_throwsInvalidPositionError() {
-        var subject = PianoRoll(timeStepCount: 8)
+        subject = PianoRoll(timeStepCount: 8)
         Assert.error(
             PianoRollError.invalidPosition,
-            isThrownIn: try subject.add(.create(position: 9))
+            isThrownIn: try subject.addNote(at: .create(time: 9))
         )
     }
 
     func test_add_positionOccupiedByIdenticalNote_throwsInvalidPositionError() throws {
-        let note: Note = .create()
-        try subject.add(note)
+        try subject.addNote(at: .create())
         Assert.error(
             PianoRollError.invalidPosition,
-            isThrownIn: try subject.add(note)
+            isThrownIn: try subject.addNote(at: .create())
         )
     }
 
-    func test_add_positionOccupiedBySamePitchDifferentLength_throwsInvalidPositionError() throws {
-        try subject.add(.create(length: 1))
-        Assert.error(
-            PianoRollError.invalidPosition
-            , isThrownIn: try subject.add(.create(length: 2))
-        )
-    }
-
-    func test_add_positionOverlapsExistingNoteSlightly_throwsInvalidPositionError() throws {
-        try subject.add(.create(length: 8))
-        Assert.error(
-            PianoRollError.invalidPosition,
-            isThrownIn: try subject.add(.create(position: 7))
-        )
-    }
-
-    // MARK: removeNote(withPitch:atTime:) tests
+    // MARK: removeNote(at:) tests
 
     func test_remove_pitchOutOfRange_throwsPitchOutOfRangeError() {
         Assert.error(
@@ -198,9 +147,9 @@ class PianoRollTests: XCTestCase {
         XCTAssertTrue(mockRenderer.spyRenderedNotes.isEmpty)
     }
 
-    private func addNote(pitch: Int = 0, length: Int = 1, position: Int = 0) throws {
-        let note: Note = .create(pitch: pitch, length: length, position: position)
-        try subject.add(note)
+    private func addNote(pitch: Int = 0, time: Int = 0) throws {
+        let coordinate: PianoRollCoordinate = .create(pitch: pitch, time: time)
+        try subject.addNote(at: coordinate)
     }
 
     func test_remove_noteIsNotThere_nothingIsRemoved() throws {
@@ -208,13 +157,6 @@ class PianoRollTests: XCTestCase {
         try subject.removeNote(at: .create(pitch: 1, time: 1))
         subject.render(with: mockRenderer)
         XCTAssertFalse(mockRenderer.spyRenderedNotes.isEmpty)
-    }
-
-    func test_remove_touchIsWithinNoteButNotAtRoot_removesNote() throws {
-        try addNote(length: 5)
-        try subject.removeNote(at: .create(time: 4))
-        subject.render(with: mockRenderer)
-        XCTAssertTrue(mockRenderer.spyRenderedNotes.isEmpty)
     }
 
     func test_remove_noteIsNotFirstInArray_stillRemoves() throws {
@@ -244,14 +186,8 @@ class PianoRollTests: XCTestCase {
     }
 
     func test_hasNote_differentPitchAndTimeMatch_true() throws {
-        try addNote(pitch: 5, position: 3)
+        try addNote(pitch: 5, time: 3)
         let result = subject.hasNote(at: .create(pitch: 5, time: 3))
-        XCTAssertTrue(result)
-    }
-
-    func test_hasNote_pitchMatches_timeIsInsideNoteLength_true() throws {
-        try addNote(pitch: 3, length: 4, position: 5)
-        let result = subject.hasNote(at: .create(pitch: 3, time: 8))
         XCTAssertTrue(result)
     }
 

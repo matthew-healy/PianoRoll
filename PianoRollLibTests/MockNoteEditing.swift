@@ -2,10 +2,10 @@
 
 class MockNoteEditing: NoteEditing {
     var didAddNote = false
-    var spyAddedNote: Note?
-    func add(_ note: Note) throws {
+    var spyAddedNoteCoordinate: PianoRollCoordinate?
+    func addNote(at coordinate: PianoRollCoordinate) throws {
         didAddNote = true
-        spyAddedNote = note
+        spyAddedNoteCoordinate = coordinate
     }
 
     var didRemoveNote = false
