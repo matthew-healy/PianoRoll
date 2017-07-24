@@ -9,7 +9,7 @@ class AddRemoveNoteInteractor {
         if noteEditor.hasNote(at: coordinate) {
             try! noteEditor.removeNote(at: PianoRollCoordinate(pitch: 0, time: 0))
         } else {
-            try! noteEditor.addNote(at: PianoRollCoordinate(pitch: 0, time: 0))
+            try! noteEditor.addNote(at: coordinate)
         }
     }
 }
