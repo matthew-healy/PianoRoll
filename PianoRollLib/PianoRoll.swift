@@ -4,7 +4,11 @@ protocol NoteEditing {
     func hasNote(at coordinate: PianoRollCoordinate) -> Bool
 }
 
-class PianoRoll: NoteEditing {
+protocol NoteRenderable {
+    func render(with renderer: NoteRendering)
+}
+
+class PianoRoll: NoteEditing, NoteRenderable {
     private var notes: [Note] = []
     private let timeStepCount: Int
     private let midiRange = 0...127

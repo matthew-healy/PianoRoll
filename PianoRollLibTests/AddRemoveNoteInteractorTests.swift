@@ -4,13 +4,15 @@ import XCTest
 class AddRemoveNoteInteractorTests: XCTestCase {
     
     var mockNoteEditing: MockNoteEditing!
+    var mockRenderable: MockNoteRenderable!
     var mockDelegate: MockAddRemoveNoteInteractionDelegate!
     var subject: AddRemoveNoteInteractor!
 
     override func setUp() {
         mockNoteEditing = MockNoteEditing()
+        mockRenderable = MockNoteRenderable()
         mockDelegate = MockAddRemoveNoteInteractionDelegate()
-        subject = AddRemoveNoteInteractor(noteEditor: mockNoteEditing, delegate: mockDelegate)
+        subject = AddRemoveNoteInteractor(noteEditor: mockNoteEditing, renderable: mockRenderable, delegate: mockDelegate)
     }
 
     // MARK: tapReceived(at:) tests
@@ -75,6 +77,11 @@ class AddRemoveNoteInteractorTests: XCTestCase {
         mockNoteEditing.stubHasNote = true
         subject.tapReceived(at: .create())
         XCTAssertEqual(.invalidPosition, mockDelegate.spyReceivedError)
+    }
+
+    func test_tapReceived_noErrorThrown_renders() {
+        subject.tapReceived(at: .create())
+        XCTAssertTrue(mockRenderable.didRender)
     }
 
 }

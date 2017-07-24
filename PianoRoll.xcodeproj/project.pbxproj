@@ -32,6 +32,7 @@
 		28700F1F1F2623B100170418 /* MockNoteEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F1E1F2623B100170418 /* MockNoteEditing.swift */; };
 		28700F211F2633D200170418 /* AddRemoveNoteInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F201F2633D200170418 /* AddRemoveNoteInteractionDelegate.swift */; };
 		28700F231F263ED000170418 /* MockAddRemoveNoteInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F221F263ED000170418 /* MockAddRemoveNoteInteractionDelegate.swift */; };
+		28700F251F2644EB00170418 /* MockNoteRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F241F2644EB00170418 /* MockNoteRenderable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		28700F1E1F2623B100170418 /* MockNoteEditing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoteEditing.swift; sourceTree = "<group>"; };
 		28700F201F2633D200170418 /* AddRemoveNoteInteractionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRemoveNoteInteractionDelegate.swift; sourceTree = "<group>"; };
 		28700F221F263ED000170418 /* MockAddRemoveNoteInteractionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAddRemoveNoteInteractionDelegate.swift; sourceTree = "<group>"; };
+		28700F241F2644EB00170418 /* MockNoteRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoteRenderable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				28700F1A1F261AAA00170418 /* PianoRollCoordinateTests.swift */,
 				28700F1E1F2623B100170418 /* MockNoteEditing.swift */,
 				28700F221F263ED000170418 /* MockAddRemoveNoteInteractionDelegate.swift */,
+				28700F241F2644EB00170418 /* MockNoteRenderable.swift */,
 			);
 			path = PianoRollLibTests;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				285184C21F1E0CD600A6A9A5 /* NoteTests.swift in Sources */,
+				28700F251F2644EB00170418 /* MockNoteRenderable.swift in Sources */,
 				285184C61F1E0F3F00A6A9A5 /* Assert.swift in Sources */,
 				285184BE1F1E0AC300A6A9A5 /* MockNoteRendering.swift in Sources */,
 				28700F231F263ED000170418 /* MockAddRemoveNoteInteractionDelegate.swift in Sources */,
