@@ -17,7 +17,7 @@ class PianoRollCoordinateTests: XCTestCase {
     
     func test_canGetTime() {
         subject = .create()
-        Assert.symmetricEquality(1, subject.time)
+        Assert.symmetricEquality(0, subject.time)
     }
 
     func test_timeIsNotHardcoded() {
@@ -30,7 +30,7 @@ class PianoRollCoordinateTests: XCTestCase {
 extension PianoRollCoordinate {
     static func create(
         pitch: Int = 0,
-        time: Int = 1
+        time: Int = 0
     ) -> PianoRollCoordinate {
         return PianoRollCoordinate(
             pitch: pitch,

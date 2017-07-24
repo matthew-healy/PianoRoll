@@ -180,20 +180,20 @@ class PianoRollTests: XCTestCase {
     func test_remove_pitchOutOfRange_throwsPitchOutOfRangeError() {
         Assert.error(
             PianoRollError.pitchOutOfRange,
-            isThrownIn: try subject.removeNote(withPitch: -1, atTime: 5)
+            isThrownIn: try subject.removeNote(at: .create(pitch: -1))
         )
     }
 
     func test_remove_timeOutOfRange_throwsInvalidPosition() {
         Assert.error(
             PianoRollError.invalidPosition,
-            isThrownIn: try subject.removeNote(withPitch: 0, atTime: 500)
+            isThrownIn: try subject.removeNote(at: .create(time: 500))
         )
     }
 
     func test_remove_noteIsThere_removesIt() throws {
         try addNote()
-        try subject.removeNote(withPitch: 0, atTime: 0)
+        try subject.removeNote(at: .create())
         subject.render(with: mockRenderer)
         XCTAssertTrue(mockRenderer.spyRenderedNotes.isEmpty)
     }
@@ -205,14 +205,14 @@ class PianoRollTests: XCTestCase {
 
     func test_remove_noteIsNotThere_nothingIsRemoved() throws {
         try addNote()
-        try subject.removeNote(withPitch: 1, atTime: 1)
+        try subject.removeNote(at: .create(pitch: 1, time: 1))
         subject.render(with: mockRenderer)
         XCTAssertFalse(mockRenderer.spyRenderedNotes.isEmpty)
     }
 
     func test_remove_touchIsWithinNoteButNotAtRoot_removesNote() throws {
         try addNote(length: 5)
-        try subject.removeNote(withPitch: 0, atTime: 4)
+        try subject.removeNote(at: .create(time: 4))
         subject.render(with: mockRenderer)
         XCTAssertTrue(mockRenderer.spyRenderedNotes.isEmpty)
     }
@@ -220,38 +220,38 @@ class PianoRollTests: XCTestCase {
     func test_remove_noteIsNotFirstInArray_stillRemoves() throws {
         try addNote()
         try addNote(pitch: 3)
-        try subject.removeNote(withPitch: 3, atTime: 0)
+        try subject.removeNote(at: .create(pitch: 3))
         subject.render(with: mockRenderer)
         XCTAssertEqual([.create()], mockRenderer.spyRenderedNotes)
     }
 
-    // MARK: hasNote(withPitch:atTime:) tests
+    // MARK: hasNote(at:) tests
 
     func test_hasNote_pitchNegative_false() {
-        let result = subject.hasNote(withPitch: -1, atTime: 1)
+        let result = subject.hasNote(at: .create(pitch: -1))
         XCTAssertFalse(result)
     }
 
     func test_hasNote_pitchAndTimeMatch_true() throws {
         try addNote()
-        let result = subject.hasNote(withPitch: 0, atTime: 0)
+        let result = subject.hasNote(at: .create())
         XCTAssertTrue(result)
     }
 
     func test_hasNote_timeNegative_false() {
-        let result = subject.hasNote(withPitch: 0, atTime: -1)
+        let result = subject.hasNote(at: .create(time: -1))
         XCTAssertFalse(result)
     }
 
     func test_hasNote_differentPitchAndTimeMatch_true() throws {
         try addNote(pitch: 5, position: 3)
-        let result = subject.hasNote(withPitch: 5, atTime: 3)
+        let result = subject.hasNote(at: .create(pitch: 5, time: 3))
         XCTAssertTrue(result)
     }
 
     func test_hasNote_pitchMatches_timeIsInsideNoteLength_true() throws {
         try addNote(pitch: 3, length: 4, position: 5)
-        let result = subject.hasNote(withPitch: 3, atTime: 8)
+        let result = subject.hasNote(at: .create(pitch: 3, time: 8))
         XCTAssertTrue(result)
     }
 

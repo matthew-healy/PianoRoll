@@ -1,4 +1,10 @@
-struct PianoRoll {
+protocol NoteEditing {
+    func add(_ note: Note) throws
+    func removeNote(at coordinate: PianoRollCoordinate) throws
+    func hasNote(at coordinate: PianoRollCoordinate) -> Bool
+}
+
+class PianoRoll: NoteEditing {
     private var notes: [Note] = []
     private let timeStepCount: Int
     private let midiRange = 0...127
@@ -20,7 +26,7 @@ struct PianoRoll {
         renderer.render(notes: notes)
     }
 
-    mutating func add(_ note: Note) throws {
+    func add(_ note: Note) throws {
         try validate(pitch: note.pitch)
         guard isValid(position: note.position) && !overlapsExistingNote(note) else {
             throw PianoRollError.invalidPosition
@@ -54,21 +60,21 @@ struct PianoRoll {
         return !notes.filter(note.hasOverlap).isEmpty
     }
 
-    mutating func removeNote(withPitch pitch: Int, atTime time: Int) throws {
-        try validate(pitch: pitch)
-        guard isValid(position: time) else {
+    func removeNote(at coordinate: PianoRollCoordinate) throws {
+        try validate(pitch: coordinate.pitch)
+        guard isValid(position: coordinate.time) else {
             throw PianoRollError.invalidPosition
         }
         notes = notes.filter { note -> Bool in
-            guard note.pitch == pitch else { return true }
+            guard note.pitch == coordinate.pitch else { return true }
             let validPositions = note.position...(note.position + note.length)
-            return !validPositions.contains(time)
+            return !validPositions.contains(coordinate.time)
         }
     }
 
-    func hasNote(withPitch pitch: Int, atTime time: Int) -> Bool {
-        guard isValid(position: time) else { return false }
-        let proxyNote = Note(pitch: pitch, length: 1, position: time)
+    func hasNote(at coordinate: PianoRollCoordinate) -> Bool {
+        guard isValid(position: coordinate.time) else { return false }
+        let proxyNote = Note(pitch: coordinate.pitch, length: 1, position: coordinate.time)
         return overlapsExistingNote(proxyNote)
     }
 }
