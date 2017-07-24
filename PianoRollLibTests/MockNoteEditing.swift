@@ -16,7 +16,9 @@ class MockNoteEditing: NoteEditing {
     }
 
     var stubHasNote = false
+    var spyHasNoteAtCoordinate: PianoRollCoordinate?
     func hasNote(at coordinate: PianoRollCoordinate) -> Bool {
+        spyHasNoteAtCoordinate = coordinate
         return stubHasNote
     }
 }

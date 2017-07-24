@@ -11,6 +11,8 @@ class AddRemoveNoteInteractorTests: XCTestCase {
         subject = AddRemoveNoteInteractor(noteEditor: mockNoteEditing)
     }
 
+    // MARK: tapReceived(at:) tests
+
     func test_tapReceived_noNoteAtCoordinate_addsNote() {
         subject.tapReceived(at: .create())
         XCTAssertTrue(mockNoteEditing.didAddNote)
@@ -31,6 +33,18 @@ class AddRemoveNoteInteractorTests: XCTestCase {
         mockNoteEditing.stubHasNote = true
         subject.tapReceived(at: .create())
         XCTAssertFalse(mockNoteEditing.didAddNote)
+    }
+
+    func test_tapReceived_pitch1time1_checksForNoteAtCoordinate() {
+        let expected: PianoRollCoordinate = .create(pitch: 1, time: 1)
+        subject.tapReceived(at: expected)
+        XCTAssertEqual(expected, mockNoteEditing.spyHasNoteAtCoordinate)
+    }
+
+    func test_tapReceived_pitch7time12_checkedCoordinateIsNotHardcoded() {
+        let expected: PianoRollCoordinate = .create(pitch: 7, time: 12)
+        subject.tapReceived(at: expected)
+        XCTAssertEqual(expected, mockNoteEditing.spyHasNoteAtCoordinate)
     }
 
 }
