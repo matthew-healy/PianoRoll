@@ -1,4 +1,4 @@
-class PianoRollInteractor {
+class AddRemoveNoteInteractor {
     private let noteEditor: NoteEditing
 
     init(noteEditor: NoteEditing) {

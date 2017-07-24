@@ -1,14 +1,14 @@
 import XCTest
 @testable import PianoRollLib
 
-class PianoRollInteractorTests: XCTestCase {
+class AddRemoveNoteInteractorTests: XCTestCase {
     
     var mockNoteEditing: MockNoteEditing!
-    var subject: PianoRollInteractor!
+    var subject: AddRemoveNoteInteractor!
 
     override func setUp() {
         mockNoteEditing = MockNoteEditing()
-        subject = PianoRollInteractor(noteEditor: mockNoteEditing)
+        subject = AddRemoveNoteInteractor(noteEditor: mockNoteEditing)
     }
 
     func test_tapReceived_noNoteAtCoordinate_addsNote() {
