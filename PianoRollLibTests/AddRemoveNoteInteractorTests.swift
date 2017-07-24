@@ -59,4 +59,18 @@ class AddRemoveNoteInteractorTests: XCTestCase {
         XCTAssertEqual(expected, mockNoteEditing.spyAddedNoteCoordinate)
     }
 
+    func test_tapReceived_noteExistsAtPitch1Time30_removesNoteThere() {
+        mockNoteEditing.stubHasNote = true
+        let expected: PianoRollCoordinate = .create(pitch: 1, time: 30)
+        subject.tapReceived(at: expected)
+        XCTAssertEqual(expected, mockNoteEditing.spyRemovedNoteCoordinate)
+    }
+
+    func test_tapReceived_noteExistsAtPitch22Time4_removesNoteThere() {
+        mockNoteEditing.stubHasNote = true
+        let expected: PianoRollCoordinate = .create(pitch: 22, time: 4)
+        subject.tapReceived(at: expected)
+        XCTAssertEqual(expected, mockNoteEditing.spyRemovedNoteCoordinate)
+    }
+
 }
