@@ -13,17 +13,6 @@ class AddRemoveNoteInteractorTests: XCTestCase {
 
     // MARK: tapReceived(at:) tests
 
-    func test_tapReceived_noNoteAtCoordinate_addsNote() {
-        subject.tapReceived(at: .create())
-        XCTAssertTrue(mockNoteEditing.didAddNote)
-    }
-
-    func test_tapReceived_noteExistsAtCoordinate_removesNote() {
-        mockNoteEditing.stubHasNote = true
-        subject.tapReceived(at: .create())
-        XCTAssertTrue(mockNoteEditing.didRemoveNote)
-    }
-
     func test_tapReceived_noNoteAtCoordinate_doesNotRemoveNote() {
         subject.tapReceived(at: .create())
         XCTAssertFalse(mockNoteEditing.didRemoveNote)
