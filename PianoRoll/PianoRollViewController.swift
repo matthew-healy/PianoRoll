@@ -40,10 +40,12 @@ extension PianoRollViewController: NoteRendering {
 
 extension PianoRollViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PianoRollCollectionViewCell.identifier, for: indexPath)
-        for note in notes where (note.pitch + 1) * note.position == indexPath.row {
-            cell.backgroundColor = .yellow
-        }
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PianoRollCollectionViewCell.identifier,
+            for: indexPath
+        )
+        let isNoteHighlighted = !notes.filter { ($0.pitch + 1) * $0.position == indexPath.row }.isEmpty
+        cell.backgroundColor = isNoteHighlighted ? .yellow : .white
         return cell
     }
 
@@ -53,5 +55,19 @@ extension PianoRollViewController: UICollectionViewDataSource, UICollectionViewD
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let pitch = indexPath.row / pianoRoll.numberOfTimeSteps
+        let position = 1
+        let note = Note(pitch: pitch, length: 1, position: position)
+        do {
+            try pianoRoll.add(note)
+        } catch {
+            do {
+                try pianoRoll.removeNote(withPitch: note.pitch, atTime: note.position)
+            } catch { }
+        }
+        pianoRoll.render(with: self)
     }
 }
