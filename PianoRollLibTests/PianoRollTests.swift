@@ -225,4 +225,34 @@ class PianoRollTests: XCTestCase {
         XCTAssertEqual([.create()], mockRenderer.spyRenderedNotes)
     }
 
+    // MARK: hasNote(withPitch:atTime:) tests
+
+    func test_hasNote_pitchNegative_false() {
+        let result = subject.hasNote(withPitch: -1, atTime: 1)
+        XCTAssertFalse(result)
+    }
+
+    func test_hasNote_pitchAndTimeMatch_true() throws {
+        try addNote()
+        let result = subject.hasNote(withPitch: 0, atTime: 0)
+        XCTAssertTrue(result)
+    }
+
+    func test_hasNote_timeNegative_false() {
+        let result = subject.hasNote(withPitch: 0, atTime: -1)
+        XCTAssertFalse(result)
+    }
+
+    func test_hasNote_differentPitchAndTimeMatch_true() throws {
+        try addNote(pitch: 5, position: 3)
+        let result = subject.hasNote(withPitch: 5, atTime: 3)
+        XCTAssertTrue(result)
+    }
+
+    func test_hasNote_pitchMatches_timeIsInsideNoteLength_true() throws {
+        try addNote(pitch: 3, length: 4, position: 5)
+        let result = subject.hasNote(withPitch: 3, atTime: 8)
+        XCTAssertTrue(result)
+    }
+
 }

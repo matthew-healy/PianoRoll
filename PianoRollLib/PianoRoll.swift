@@ -65,4 +65,10 @@ public struct PianoRoll {
             return !validPositions.contains(time)
         }
     }
+
+    public func hasNote(withPitch pitch: Int, atTime time: Int) -> Bool {
+        guard isValid(position: time) else { return false }
+        let proxyNote = Note(pitch: pitch, length: 1, position: time)
+        return overlapsExistingNote(proxyNote)
+    }
 }
