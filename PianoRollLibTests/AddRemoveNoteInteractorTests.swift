@@ -4,11 +4,13 @@ import XCTest
 class AddRemoveNoteInteractorTests: XCTestCase {
     
     var mockNoteEditing: MockNoteEditing!
+    var mockDelegate: MockAddRemoveNoteInteractionDelegate!
     var subject: AddRemoveNoteInteractor!
 
     override func setUp() {
         mockNoteEditing = MockNoteEditing()
-        subject = AddRemoveNoteInteractor(noteEditor: mockNoteEditing)
+        mockDelegate = MockAddRemoveNoteInteractionDelegate()
+        subject = AddRemoveNoteInteractor(noteEditor: mockNoteEditing, delegate: mockDelegate)
     }
 
     // MARK: tapReceived(at:) tests
@@ -60,6 +62,19 @@ class AddRemoveNoteInteractorTests: XCTestCase {
         let expected: PianoRollCoordinate = .create(pitch: 22, time: 4)
         subject.tapReceived(at: expected)
         XCTAssertEqual(expected, mockNoteEditing.spyRemovedNoteCoordinate)
+    }
+
+    func test_tapReceived_addNoteThrowsError_passesErrorToInteractionDelegate() {
+        mockNoteEditing.stubAddNoteError = .pitchOutOfRange
+        subject.tapReceived(at: .create())
+        XCTAssertEqual(.pitchOutOfRange, mockDelegate.spyReceivedError)
+    }
+
+    func test_tapReceived_removeNoteThrowsError_passesErrorToInteractionDelegate() {
+        mockNoteEditing.stubRemoveNoteError = .invalidPosition
+        mockNoteEditing.stubHasNote = true
+        subject.tapReceived(at: .create())
+        XCTAssertEqual(.invalidPosition, mockDelegate.spyReceivedError)
     }
 
 }
