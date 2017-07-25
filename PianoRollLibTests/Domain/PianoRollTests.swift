@@ -20,18 +20,18 @@ class PianoRollTests: XCTestCase {
     
     func test_render_rendersGridWith128Pitches() {
         subject.render(with: mockRenderer)
-        XCTAssertEqual(128, mockRenderer.spyRenderedDimensions?.pitches)
+        XCTAssertEqual(128, mockRenderer.spyRenderedDimension?.pitches)
     }
 
     func test_render_timeStepCount10_rendersGridWith10TimeSteps() {
         subject.render(with: mockRenderer)
-        XCTAssertEqual(10, mockRenderer.spyRenderedDimensions?.timeSteps)
+        XCTAssertEqual(10, mockRenderer.spyRenderedDimension?.timeSteps)
     }
 
     func test_render_timeStepCount32_rendersGridWith32TimeSteps() {
         subject = PianoRoll(timeStepCount: 32)
         subject.render(with: mockRenderer)
-        XCTAssertEqual(32, mockRenderer.spyRenderedDimensions?.timeSteps)
+        XCTAssertEqual(32, mockRenderer.spyRenderedDimension?.timeSteps)
     }
 
     func test_render_noNotesAdded_passesEmptyNotesArrayToRenderer() {

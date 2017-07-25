@@ -3,10 +3,10 @@
 class MockNoteRendering: NoteRendering {
     var didRender = false
     var spyRenderedNotes: [Note] = []
-    var spyRenderedDimensions: GridDimensions?
-    func render(notes: [Note], onGridWith dimensions: GridDimensions) {
+    var spyRenderedDimension: GridDimension?
+    func render(notes: [Note], onGridWith dimension: GridDimension) {
         didRender = true
         spyRenderedNotes = notes
-        spyRenderedDimensions = dimensions
+        spyRenderedDimension = dimension
     }
 }

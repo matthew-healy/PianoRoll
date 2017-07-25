@@ -17,6 +17,7 @@
 		281CEBA61F2755350085E861 /* IndexPath+PianoRollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281CEBA51F2755350085E861 /* IndexPath+PianoRollTests.swift */; };
 		281CEBA81F277A720085E861 /* NoteEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281CEBA71F277A720085E861 /* NoteEditing.swift */; };
 		281CEBAA1F277A830085E861 /* NoteRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281CEBA91F277A830085E861 /* NoteRenderable.swift */; };
+		281CEBAC1F277BAB0085E861 /* PianoRollDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281CEBAB1F277BAB0085E861 /* PianoRollDimension.swift */; };
 		285184771F1DFABE00A6A9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184761F1DFABE00A6A9A5 /* AppDelegate.swift */; };
 		285184791F1DFABE00A6A9A5 /* PianoRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184781F1DFABE00A6A9A5 /* PianoRollViewController.swift */; };
 		2851847C1F1DFABE00A6A9A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2851847A1F1DFABE00A6A9A5 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		281CEBA51F2755350085E861 /* IndexPath+PianoRollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+PianoRollTests.swift"; sourceTree = "<group>"; };
 		281CEBA71F277A720085E861 /* NoteEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditing.swift; sourceTree = "<group>"; };
 		281CEBA91F277A830085E861 /* NoteRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRenderable.swift; sourceTree = "<group>"; };
+		281CEBAB1F277BAB0085E861 /* PianoRollDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoRollDimension.swift; sourceTree = "<group>"; };
 		285184731F1DFABE00A6A9A5 /* PianoRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PianoRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285184761F1DFABE00A6A9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		285184781F1DFABE00A6A9A5 /* PianoRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoRollViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				28700F421F2738C500170418 /* PianoRollError.swift */,
 				281CEBA71F277A720085E861 /* NoteEditing.swift */,
 				281CEBA91F277A830085E861 /* NoteRenderable.swift */,
+				281CEBAB1F277BAB0085E861 /* PianoRollDimension.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2814E6BE1F27423C0022E88A /* PianoRollViewing.swift in Sources */,
+				281CEBAC1F277BAB0085E861 /* PianoRollDimension.swift in Sources */,
 				28700F4F1F2738C500170418 /* AddRemoveNoteInteractor.swift in Sources */,
 				28700F4E1F2738C500170418 /* AddRemoveNoteInteractionDelegate.swift in Sources */,
 				2814E6C41F27524E0022E88A /* IndexPath+PianoRoll.swift in Sources */,
