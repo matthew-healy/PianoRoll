@@ -11,6 +11,8 @@
 		2814E6BA1F27412D0022E88A /* PianoRollPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2814E6B91F27412D0022E88A /* PianoRollPresenterTests.swift */; };
 		2814E6BC1F2741860022E88A /* MockPianoRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2814E6BB1F2741860022E88A /* MockPianoRollView.swift */; };
 		2814E6BE1F27423C0022E88A /* PianoRollViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2814E6BD1F27423C0022E88A /* PianoRollViewing.swift */; };
+		2814E6C01F2745390022E88A /* PianoRollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2814E6BF1F2745390022E88A /* PianoRollViewModel.swift */; };
+		2814E6C21F2745520022E88A /* PianoRollViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2814E6C11F2745520022E88A /* PianoRollViewModelTests.swift */; };
 		285184771F1DFABE00A6A9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184761F1DFABE00A6A9A5 /* AppDelegate.swift */; };
 		285184791F1DFABE00A6A9A5 /* PianoRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285184781F1DFABE00A6A9A5 /* PianoRollViewController.swift */; };
 		2851847C1F1DFABE00A6A9A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2851847A1F1DFABE00A6A9A5 /* Main.storyboard */; };
@@ -89,6 +91,8 @@
 		2814E6B91F27412D0022E88A /* PianoRollPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoRollPresenterTests.swift; sourceTree = "<group>"; };
 		2814E6BB1F2741860022E88A /* MockPianoRollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPianoRollView.swift; sourceTree = "<group>"; };
 		2814E6BD1F27423C0022E88A /* PianoRollViewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoRollViewing.swift; sourceTree = "<group>"; };
+		2814E6BF1F2745390022E88A /* PianoRollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoRollViewModel.swift; sourceTree = "<group>"; };
+		2814E6C11F2745520022E88A /* PianoRollViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoRollViewModelTests.swift; sourceTree = "<group>"; };
 		285184731F1DFABE00A6A9A5 /* PianoRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PianoRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285184761F1DFABE00A6A9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		285184781F1DFABE00A6A9A5 /* PianoRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoRollViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 			children = (
 				2814E6B71F2741120022E88A /* PianoRollPresenter.swift */,
 				2814E6BD1F27423C0022E88A /* PianoRollViewing.swift */,
+				2814E6BF1F2745390022E88A /* PianoRollViewModel.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				28700F571F27391800170418 /* MockNoteRendering.swift */,
 				2814E6B91F27412D0022E88A /* PianoRollPresenterTests.swift */,
 				2814E6BB1F2741860022E88A /* MockPianoRollView.swift */,
+				2814E6C11F2745520022E88A /* PianoRollViewModelTests.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				28700F4E1F2738C500170418 /* AddRemoveNoteInteractionDelegate.swift in Sources */,
 				28700F4B1F2738C500170418 /* PianoRollCoordinate.swift in Sources */,
 				2814E6B81F2741120022E88A /* PianoRollPresenter.swift in Sources */,
+				2814E6C01F2745390022E88A /* PianoRollViewModel.swift in Sources */,
 				28700F491F2738C500170418 /* NoteRendering.swift in Sources */,
 				28700F4C1F2738C500170418 /* PianoRollError.swift in Sources */,
 				28700F4A1F2738C500170418 /* PianoRoll.swift in Sources */,
@@ -502,6 +509,7 @@
 				28700F611F27391800170418 /* MockNoteRendering.swift in Sources */,
 				2814E6BA1F27412D0022E88A /* PianoRollPresenterTests.swift in Sources */,
 				28700F5C1F27391800170418 /* MockNoteEditing.swift in Sources */,
+				2814E6C21F2745520022E88A /* PianoRollViewModelTests.swift in Sources */,
 				28700F641F27391800170418 /* MockAddRemoveNoteInteractionDelegate.swift in Sources */,
 				2814E6BC1F2741860022E88A /* MockPianoRollView.swift in Sources */,
 				285184C61F1E0F3F00A6A9A5 /* Assert.swift in Sources */,
