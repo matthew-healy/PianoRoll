@@ -62,8 +62,7 @@ extension PianoRollViewModel {
         items: [(Int, Int)] = []
     ) -> PianoRollViewModel {
         return PianoRollViewModel(
-            pitchCount: pitchCount,
-            timeStepCount: timeStepCount,
+            dimension: .create(pitches: pitchCount, timeSteps: timeStepCount),
             items: items
         )
     }
