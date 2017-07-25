@@ -1,9 +1,12 @@
-//
-//  PianoRollPresenter.swift
-//  PianoRollLib
-//
-//  Created by Matthew Healy on 25.07.17.
-//  Copyright © 2017 Matthew Healy. All rights reserved.
-//
+class PianoRollPresenter: NoteRendering {
+    private unowned let view: PianoRollViewing
 
-import Foundation
+    init(view: PianoRollViewing) {
+        self.view = view
+    }
+
+    func render(notes: [Note]) {
+        view.display()
+    }
+}
+

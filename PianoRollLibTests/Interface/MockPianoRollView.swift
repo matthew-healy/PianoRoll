@@ -1,9 +1,8 @@
-//
-//  MockPianoRollView.swift
-//  PianoRollLibTests
-//
-//  Created by Matthew Healy on 25.07.17.
-//  Copyright © 2017 Matthew Healy. All rights reserved.
-//
+@testable import PianoRollLib
 
-import Foundation
+class MockPianoRollView: PianoRollViewing {
+    var didDisplay = false
+    func display() {
+        didDisplay = true
+    }
+}
