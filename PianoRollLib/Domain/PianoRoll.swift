@@ -11,7 +11,7 @@ class PianoRoll: NoteEditing, NoteRenderable {
     func render(with renderer: NoteRendering) {
         renderer.render(
             notes: notes,
-            onGridWith: (pitches: midiRange.count, timeSteps: timeStepCount)
+            onGridWith: GridDimension(pitches: midiRange.count, timeSteps: timeStepCount)
         )
     }
 
