@@ -1,3 +1,3 @@
 protocol PianoRollViewing: class {
-    func display()
+    func display(viewModel: PianoRollViewModel)
 }

@@ -27,6 +27,25 @@ class PianoRollViewModelTests: XCTestCase {
         XCTAssertEqual(55, subject.timeStepCount)
     }
 
+    // MARK: equals tests
+
+    var lhs, rhs: PianoRollViewModel!
+
+    func test_equals_propertiesMatch_true() {
+        (lhs, rhs) = (.create(), .create())
+        Assert.symmetricEquality(lhs, rhs)
+    }
+
+    func test_dimensionsDiffer_false() {
+        (lhs, rhs) = (.create(pitchCount: 55), .create())
+        Assert.symmetricNonEquality(lhs, rhs)
+    }
+
+    func test_itemsDiffer_false() {
+        (lhs, rhs) = (.create(items: [(0, 1)]), .create())
+        Assert.symmetricNonEquality(lhs, rhs)
+    }
+
     // MARK: item(at:) tests
 
     func test_itemAt_noItem_false() {

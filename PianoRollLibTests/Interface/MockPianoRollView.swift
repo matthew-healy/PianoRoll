@@ -2,7 +2,9 @@
 
 class MockPianoRollView: PianoRollViewing {
     var didDisplay = false
-    func display() {
+    var spyDisplayedViewModel: PianoRollViewModel?
+    func display(viewModel: PianoRollViewModel) {
         didDisplay = true
+        spyDisplayedViewModel = viewModel
     }
 }

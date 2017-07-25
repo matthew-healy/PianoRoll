@@ -24,6 +24,25 @@ class GridDimensionTests: XCTestCase {
         subject = .create(timeSteps: 100)
         XCTAssertEqual(100, subject.timeSteps)
     }
+
+    // MARK: equals tests
+
+    var lhs, rhs: GridDimension!
+
+    func test_equals_propertiesMatch_true() {
+        (lhs, rhs) = (.create(), .create())
+        Assert.symmetricEquality(lhs, rhs)
+    }
+
+    func test_equals_pitchesDiffer_false() {
+        (lhs, rhs) = (.create(pitches: 5), .create())
+        Assert.symmetricNonEquality(lhs, rhs)
+    }
+
+    func test_equals_timeStepsDiffer_false() {
+        (lhs, rhs) = (.create(timeSteps: 100), .create())
+        Assert.symmetricNonEquality(lhs, rhs)
+    }
 }
 
 
