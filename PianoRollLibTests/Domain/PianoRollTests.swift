@@ -11,23 +11,6 @@ class PianoRollTests: XCTestCase {
         subject = PianoRoll(timeStepCount: 10)
     }
 
-    // MARK: numberOfPitches tests
-
-    func test_numberOfPitches_128() {
-        XCTAssertEqual(128, subject.numberOfPitches)
-    }
-
-    // MARK: numberOfTimeSteps tests
-
-    func test_numberOfTimeSteps_timeStepCountIs10_10() {
-        XCTAssertEqual(10, subject.numberOfTimeSteps)
-    }
-
-    func test_numberOfTimeSteps_timeStepCountIs25_25() {
-        subject = PianoRoll(timeStepCount: 25)
-        XCTAssertEqual(25, subject.numberOfTimeSteps)
-    }
-
     // MARK: render tests
 
     func test_render_callsRenderOnRenderer() {
@@ -35,6 +18,22 @@ class PianoRollTests: XCTestCase {
         XCTAssertTrue(mockRenderer.didRender)
     }
     
+    func test_render_rendersGridWith128Pitches() {
+        subject.render(with: mockRenderer)
+        XCTAssertEqual(128, mockRenderer.spyRenderedDimensions?.pitches)
+    }
+
+    func test_render_timeStepCount10_rendersGridWith10TimeSteps() {
+        subject.render(with: mockRenderer)
+        XCTAssertEqual(10, mockRenderer.spyRenderedDimensions?.timeSteps)
+    }
+
+    func test_render_timeStepCount32_rendersGridWith32TimeSteps() {
+        subject = PianoRoll(timeStepCount: 32)
+        subject.render(with: mockRenderer)
+        XCTAssertEqual(32, mockRenderer.spyRenderedDimensions?.timeSteps)
+    }
+
     func test_render_noNotesAdded_passesEmptyNotesArrayToRenderer() {
         subject.render(with: mockRenderer)
         XCTAssertEqual([], mockRenderer.spyRenderedNotes)

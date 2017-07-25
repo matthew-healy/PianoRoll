@@ -5,7 +5,7 @@ class PianoRollPresenter: NoteRendering {
         self.view = view
     }
 
-    func render(notes: [Note]) {
+    func render(notes: [Note], onGridWith dimensions: GridDimensions) {
         view.display()
     }
 }

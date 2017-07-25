@@ -13,21 +13,16 @@ class PianoRoll: NoteEditing, NoteRenderable {
     private let timeStepCount: Int
     private let midiRange = 0...127
 
-    var numberOfPitches: Int {
-        return midiRange.count
-    }
-
-    var numberOfTimeSteps: Int {
-        return timeStepCount
-    }
-
     init(timeStepCount: Int) {
         assert(timeStepCount > 0)
         self.timeStepCount = timeStepCount
     }
 
     func render(with renderer: NoteRendering) {
-        renderer.render(notes: notes)
+        renderer.render(
+            notes: notes,
+            onGridWith: (pitches: midiRange.count, timeSteps: timeStepCount)
+        )
     }
 
     func addNote(at coordinate: PianoRollCoordinate) throws {
