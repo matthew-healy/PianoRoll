@@ -23,7 +23,6 @@
 		28700F4A1F2738C500170418 /* PianoRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F401F2738C500170418 /* PianoRoll.swift */; };
 		28700F4B1F2738C500170418 /* PianoRollCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F411F2738C500170418 /* PianoRollCoordinate.swift */; };
 		28700F4C1F2738C500170418 /* PianoRollError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F421F2738C500170418 /* PianoRollError.swift */; };
-		28700F4D1F2738C500170418 /* PianoRollEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F441F2738C500170418 /* PianoRollEventController.swift */; };
 		28700F4E1F2738C500170418 /* AddRemoveNoteInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F461F2738C500170418 /* AddRemoveNoteInteractionDelegate.swift */; };
 		28700F4F1F2738C500170418 /* AddRemoveNoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F471F2738C500170418 /* AddRemoveNoteInteractor.swift */; };
 		28700F5C1F27391800170418 /* MockNoteEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F511F27391800170418 /* MockNoteEditing.swift */; };
@@ -32,7 +31,6 @@
 		28700F5F1F27391800170418 /* PianoRollCoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F541F27391800170418 /* PianoRollCoordinateTests.swift */; };
 		28700F601F27391800170418 /* PianoRollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F551F27391800170418 /* PianoRollTests.swift */; };
 		28700F611F27391800170418 /* MockNoteRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F571F27391800170418 /* MockNoteRendering.swift */; };
-		28700F621F27391800170418 /* PianoRollEventControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F581F27391800170418 /* PianoRollEventControllerTests.swift */; };
 		28700F631F27391800170418 /* AddRemoveNoteInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F5A1F27391800170418 /* AddRemoveNoteInteractorTests.swift */; };
 		28700F641F27391800170418 /* MockAddRemoveNoteInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28700F5B1F27391800170418 /* MockAddRemoveNoteInteractionDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -104,7 +102,6 @@
 		28700F401F2738C500170418 /* PianoRoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRoll.swift; sourceTree = "<group>"; };
 		28700F411F2738C500170418 /* PianoRollCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollCoordinate.swift; sourceTree = "<group>"; };
 		28700F421F2738C500170418 /* PianoRollError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollError.swift; sourceTree = "<group>"; };
-		28700F441F2738C500170418 /* PianoRollEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollEventController.swift; sourceTree = "<group>"; };
 		28700F461F2738C500170418 /* AddRemoveNoteInteractionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRemoveNoteInteractionDelegate.swift; sourceTree = "<group>"; };
 		28700F471F2738C500170418 /* AddRemoveNoteInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRemoveNoteInteractor.swift; sourceTree = "<group>"; };
 		28700F511F27391800170418 /* MockNoteEditing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoteEditing.swift; sourceTree = "<group>"; };
@@ -113,7 +110,6 @@
 		28700F541F27391800170418 /* PianoRollCoordinateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollCoordinateTests.swift; sourceTree = "<group>"; };
 		28700F551F27391800170418 /* PianoRollTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollTests.swift; sourceTree = "<group>"; };
 		28700F571F27391800170418 /* MockNoteRendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoteRendering.swift; sourceTree = "<group>"; };
-		28700F581F27391800170418 /* PianoRollEventControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoRollEventControllerTests.swift; sourceTree = "<group>"; };
 		28700F5A1F27391800170418 /* AddRemoveNoteInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRemoveNoteInteractorTests.swift; sourceTree = "<group>"; };
 		28700F5B1F27391800170418 /* MockAddRemoveNoteInteractionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAddRemoveNoteInteractionDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,7 +231,6 @@
 		28700F431F2738C500170418 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				28700F441F2738C500170418 /* PianoRollEventController.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -265,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				28700F571F27391800170418 /* MockNoteRendering.swift */,
-				28700F581F27391800170418 /* PianoRollEventControllerTests.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -480,7 +474,6 @@
 				28700F4F1F2738C500170418 /* AddRemoveNoteInteractor.swift in Sources */,
 				28700F4E1F2738C500170418 /* AddRemoveNoteInteractionDelegate.swift in Sources */,
 				28700F4B1F2738C500170418 /* PianoRollCoordinate.swift in Sources */,
-				28700F4D1F2738C500170418 /* PianoRollEventController.swift in Sources */,
 				28700F491F2738C500170418 /* NoteRendering.swift in Sources */,
 				28700F4C1F2738C500170418 /* PianoRollError.swift in Sources */,
 				28700F4A1F2738C500170418 /* PianoRoll.swift in Sources */,
@@ -499,7 +492,6 @@
 				28700F601F27391800170418 /* PianoRollTests.swift in Sources */,
 				28700F5D1F27391800170418 /* MockNoteRenderable.swift in Sources */,
 				28700F5F1F27391800170418 /* PianoRollCoordinateTests.swift in Sources */,
-				28700F621F27391800170418 /* PianoRollEventControllerTests.swift in Sources */,
 				28700F631F27391800170418 /* AddRemoveNoteInteractorTests.swift in Sources */,
 				28700F5E1F27391800170418 /* NoteTests.swift in Sources */,
 			);
