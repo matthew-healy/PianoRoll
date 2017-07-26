@@ -1,4 +1,4 @@
-class PianoRollPresenter: NoteRendering, AddRemoveNoteInteractionDelegate {
+class PianoRollPresenter: NoteRendering, AddRemoveNoteInteractorOutput {
     private unowned let view: PianoRollViewing
 
     init(view: PianoRollViewing) {

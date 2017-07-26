@@ -6,14 +6,14 @@ class AddRemoveNoteInteractorTests: XCTestCase {
     var mockNoteEditing: MockNoteEditing!
     var mockRenderable: MockNoteRenderable!
     var mockRendering: MockNoteRendering!
-    var mockDelegate: MockAddRemoveNoteInteractionDelegate!
+    var mockDelegate: MockAddRemoveNoteInteractorOutput!
     var subject: AddRemoveNoteInteractor!
 
     override func setUp() {
         mockNoteEditing = MockNoteEditing()
         mockRenderable = MockNoteRenderable()
         mockRendering = MockNoteRendering()
-        mockDelegate = MockAddRemoveNoteInteractionDelegate()
+        mockDelegate = MockAddRemoveNoteInteractorOutput()
         subject = AddRemoveNoteInteractor(
             noteEditor: mockNoteEditing,
             renderable: mockRenderable,

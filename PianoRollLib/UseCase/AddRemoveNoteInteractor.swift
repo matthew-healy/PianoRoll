@@ -2,9 +2,9 @@ class AddRemoveNoteInteractor {
     private let noteEditor: NoteEditing
     private let renderable: NoteRenderable
     private unowned let renderer: NoteRendering
-    private unowned let delegate: AddRemoveNoteInteractionDelegate
+    private unowned let delegate: AddRemoveNoteInteractorOutput
 
-    init(noteEditor: NoteEditing, renderable: NoteRenderable, renderer: NoteRendering, delegate: AddRemoveNoteInteractionDelegate) {
+    init(noteEditor: NoteEditing, renderable: NoteRenderable, renderer: NoteRendering, delegate: AddRemoveNoteInteractorOutput) {
         self.noteEditor = noteEditor
         self.renderable = renderable
         self.renderer = renderer

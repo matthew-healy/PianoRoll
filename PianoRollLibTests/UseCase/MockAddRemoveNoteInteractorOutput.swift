@@ -1,6 +1,6 @@
 @testable import PianoRollLib
 
-class MockAddRemoveNoteInteractionDelegate: AddRemoveNoteInteractionDelegate {
+class MockAddRemoveNoteInteractorOutput: AddRemoveNoteInteractorOutput {
     var didReceiveError = false
     var spyReceivedError: PianoRollError?
     func received(error: PianoRollError) {
