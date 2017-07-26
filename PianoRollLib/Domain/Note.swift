@@ -1,15 +1,9 @@
-public struct Note: Equatable {
-    public let pitch: Int
-    public let length: Int
-    public let position: Int
+struct Note: Equatable {
+    let pitch: Int
+    let length: Int
+    let position: Int
 
-    public init(pitch: Int, length: Int, position: Int) {
-        self.pitch = pitch
-        self.length = length
-        self.position = position
-    }
-
-    public static func ==(lhs: Note, rhs: Note) -> Bool {
+    static func ==(lhs: Note, rhs: Note) -> Bool {
         return lhs.pitch == rhs.pitch
             && lhs.length == rhs.length
             && lhs.position == rhs.position
