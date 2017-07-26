@@ -40,4 +40,11 @@ class PianoRollPresenterTests: XCTestCase {
         XCTAssertEqual(expected, mockView.spyDisplayedViewModel)
     }
 
+    // MARK: received(error:) tests
+
+    func test_receivedError_displaysError() {
+        subject.received(error: .invalidPosition)
+        XCTAssertTrue(mockView.didDisplayError)
+    }
+
 }

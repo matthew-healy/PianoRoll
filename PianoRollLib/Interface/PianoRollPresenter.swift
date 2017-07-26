@@ -1,4 +1,4 @@
-class PianoRollPresenter: NoteRendering {
+class PianoRollPresenter: NoteRendering, AddRemoveNoteInteractionDelegate {
     private unowned let view: PianoRollViewing
 
     init(view: PianoRollViewing) {
@@ -11,6 +11,10 @@ class PianoRollPresenter: NoteRendering {
             items: notes.map { ($0.pitch, $0.position) }
         )
         view.display(viewModel: model)
+    }
+
+    func received(error: PianoRollError) {
+        view.displayError()
     }
 }
 
