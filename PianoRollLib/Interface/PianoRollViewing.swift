@@ -1,4 +1,4 @@
-protocol PianoRollViewing: class {
+public protocol PianoRollViewing: class {
     func display(viewModel: PianoRollViewModel)
     func displayError()
 }
