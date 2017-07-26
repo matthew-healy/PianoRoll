@@ -6,7 +6,10 @@ class PianoRollPresenter: NoteRendering {
     }
 
     func render(notes: [Note], onGridWith dimension: GridDimension) {
-        let model = PianoRollViewModel(dimension: dimension, items: [])
+        let model = PianoRollViewModel(
+            dimension: dimension,
+            items: notes.map { ($0.pitch, $0.position) }
+        )
         view.display(viewModel: model)
     }
 }
