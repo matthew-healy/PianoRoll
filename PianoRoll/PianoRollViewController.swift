@@ -6,10 +6,12 @@ class PianoRollViewController: UIViewController, PianoRollViewing {
     @IBOutlet weak var pianoRollCollectionView: UICollectionView!
 
     private var viewModel: PianoRollViewModel?
+    private var wireframe: PianoRollWireframe?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
+        self.wireframe = PianoRollWireframe(view: self)
     }
 
     private func setUpCollectionView () {
